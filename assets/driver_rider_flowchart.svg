@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" style="font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;">
+  <defs>
+    <linearGradient id="driverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90D9"/>
+      <stop offset="100%" style="stop-color:#357ABD"/>
+    </linearGradient>
+    <linearGradient id="riderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#50C878"/>
+      <stop offset="100%" style="stop-color:#3CB371"/>
+    </linearGradient>
+    <linearGradient id="matchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FFA500"/>
+    </linearGradient>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#ee5a5a"/>
+    </linearGradient>
+    <linearGradient id="endGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6"/>
+      <stop offset="100%" style="stop-color:#8E44AD"/>
+    </linearGradient>
+    <linearGradient id="decisionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F39C12"/>
+      <stop offset="100%" style="stop-color:#E67E22"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1400" fill="url(#bgGrad)"/>
+  <rect x="30" y="30" width="840" height="1340" rx="20" fill="white" filter="url(#shadow)"/>
+
+  <!-- Title -->
+  <text x="450" y="80" text-anchor="middle" font-size="28" font-weight="bold" fill="#2c3e50">🚗 BoxCar 司机-乘客交互流程图</text>
+  <text x="450" y="110" text-anchor="middle" font-size="14" fill="#7f8c8d" font-style="italic">Driver-Rider Interaction Flowchart</text>
+
+  <!-- Start Circle -->
+  <circle cx="450" cy="160" r="35" fill="#2c3e50" filter="url(#shadow)"/>
+  <text x="450" y="166" text-anchor="middle" fill="white" font-size="14" font-weight="bold">开始</text>
+
+  <!-- Arrow down from start -->
+  <path d="M450,195 L450,220" stroke="#555" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <polygon points="450,230 445,220 455,220" fill="#555"/>
+
+  <!-- Section Titles -->
+  <rect x="120" y="240" width="140" height="30" rx="15" fill="#e3f2fd"/>
+  <text x="190" y="260" text-anchor="middle" fill="#4A90D9" font-size="14" font-weight="bold">👨‍✈️ 司机流程</text>
+
+  <rect x="640" y="240" width="140" height="30" rx="15" fill="#e8f5e9"/>
+  <text x="710" y="260" text-anchor="middle" fill="#50C878" font-size="14" font-weight="bold">🙋 乘客流程</text>
+
+  <!-- Parameter boxes -->
+  <rect x="100" y="280" width="180" height="45" rx="5" fill="#f8f9fa" stroke="#4A90D9" stroke-width="3" stroke-dasharray="0,0,180,45"/>
+  <text x="110" y="300" fill="#666" font-size="11">到达率: λ=3/小时</text>
+  <text x="110" y="315" fill="#666" font-size="11">在线时长: U(5,8)小时</text>
+
+  <rect x="620" y="280" width="180" height="45" rx="5" fill="#f8f9fa" stroke="#50C878" stroke-width="3" stroke-dasharray="0,0,180,45"/>
+  <text x="630" y="300" fill="#666" font-size="11">到达率: λ=30/小时</text>
+  <text x="630" y="315" fill="#666" font-size="11">耐心时间: 平均12分钟</text>
+
+  <!-- Driver boxes (left) -->
+  <rect x="115" y="340" width="170" height="40" rx="10" fill="url(#driverGrad)" filter="url(#shadow)"/>
+  <text x="200" y="365" text-anchor="middle" fill="white" font-size="13" font-weight="bold">司机到达系统</text>
+
+  <line x1="200" y1="380" x2="200" y2="400" stroke="#555" stroke-width="2"/>
+  <polygon points="200,410 195,400 205,400" fill="#555"/>
+
+  <rect x="115" y="415" width="170" height="40" rx="10" fill="url(#driverGrad)" filter="url(#shadow)"/>
+  <text x="200" y="440" text-anchor="middle" fill="white" font-size="13" font-weight="bold">随机位置 (x, y)</text>
+
+  <line x1="200" y1="455" x2="200" y2="475" stroke="#555" stroke-width="2"/>
+  <polygon points="200,485 195,475 205,475" fill="#555"/>
+
+  <rect x="115" y="490" width="170" height="40" rx="10" fill="url(#driverGrad)" filter="url(#shadow)"/>
+  <text x="200" y="515" text-anchor="middle" fill="white" font-size="13" font-weight="bold">状态: 空闲 🟢</text>
+
+  <!-- Rider boxes (right) -->
+  <rect x="615" y="340" width="170" height="40" rx="10" fill="url(#riderGrad)" filter="url(#shadow)"/>
+  <text x="700" y="365" text-anchor="middle" fill="white" font-size="13" font-weight="bold">乘客到达系统</text>
+
+  <line x1="700" y1="380" x2="700" y2="400" stroke="#555" stroke-width="2"/>
+  <polygon points="700,410 695,400 705,400" fill="#555"/>
+
+  <rect x="615" y="415" width="170" height="40" rx="10" fill="url(#riderGrad)" filter="url(#shadow)"/>
+  <text x="700" y="440" text-anchor="middle" fill="white" font-size="13" font-weight="bold">起点 → 目的地</text>
+
+  <line x1="700" y1="455" x2="700" y2="475" stroke="#555" stroke-width="2"/>
+  <polygon points="700,485 695,475 705,475" fill="#555"/>
+
+  <rect x="615" y="490" width="170" height="40" rx="10" fill="url(#riderGrad)" filter="url(#shadow)"/>
+  <text x="700" y="515" text-anchor="middle" fill="white" font-size="13" font-weight="bold">状态: 等待中 ⏳</text>
+
+  <!-- Converging lines -->
+  <path d="M200,530 L200,550 L450,580" stroke="#555" stroke-width="2" fill="none"/>
+  <path d="M700,530 L700,550 L450,580" stroke="#555" stroke-width="2" fill="none"/>
+
+  <!-- Matching box -->
+  <rect x="340" y="590" width="220" height="50" rx="10" fill="url(#matchGrad)" filter="url(#shadow)"/>
+  <text x="450" y="612" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">🔗 匹配算法</text>
+  <text x="450" y="630" text-anchor="middle" fill="#555" font-size="11">(最近邻居)</text>
+
+  <line x1="450" y1="640" x2="450" y2="660" stroke="#555" stroke-width="2"/>
+  <polygon points="450,670 445,660 455,660" fill="#555"/>
+
+  <!-- Decision diamond -->
+  <rect x="400" y="680" width="100" height="100" rx="5" fill="url(#decisionGrad)" transform="rotate(45,450,730)" filter="url(#shadow)"/>
+  <text x="450" y="725" text-anchor="middle" fill="white" font-size="13" font-weight="bold">匹配</text>
+  <text x="450" y="742" text-anchor="middle" fill="white" font-size="13" font-weight="bold">成功?</text>
+
+  <!-- Yes/No labels -->
+  <rect x="280" y="720" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="300" y="734" text-anchor="middle" fill="#F39C12" font-size="11" font-weight="bold">✓ 是</text>
+
+  <rect x="580" y="720" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="600" y="734" text-anchor="middle" fill="#F39C12" font-size="11" font-weight="bold">✗ 否</text>
+
+  <!-- Left branch (successful match) -->
+  <line x1="380" y1="730" x2="300" y2="730" stroke="#555" stroke-width="2"/>
+  <line x1="200" y1="730" x2="200" y2="760" stroke="#555" stroke-width="2"/>
+  <polygon points="200,770 195,760 205,760" fill="#555"/>
+
+  <rect x="115" y="775" width="170" height="36" rx="10" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="200" y="798" text-anchor="middle" fill="white" font-size="12" font-weight="bold">司机接单 📱</text>
+
+  <line x1="200" y1="811" x2="200" y2="825" stroke="#555" stroke-width="2"/>
+  <polygon points="200,835 195,825 205,825" fill="#555"/>
+
+  <rect x="115" y="840" width="170" height="36" rx="10" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="200" y="863" text-anchor="middle" fill="white" font-size="12" font-weight="bold">前往乘客位置 🚗</text>
+
+  <line x1="200" y1="876" x2="200" y2="890" stroke="#555" stroke-width="2"/>
+  <polygon points="200,900 195,890 205,890" fill="#555"/>
+
+  <rect x="115" y="905" width="170" height="36" rx="10" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="200" y="928" text-anchor="middle" fill="white" font-size="12" font-weight="bold">接到乘客 ✅</text>
+
+  <line x1="200" y1="941" x2="200" y2="955" stroke="#555" stroke-width="2"/>
+  <polygon points="200,965 195,955 205,955" fill="#555"/>
+
+  <rect x="115" y="970" width="170" height="36" rx="10" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="200" y="993" text-anchor="middle" fill="white" font-size="12" font-weight="bold">前往目的地 🛣️</text>
+
+  <line x1="200" y1="1006" x2="200" y2="1020" stroke="#555" stroke-width="2"/>
+  <polygon points="200,1030 195,1020 205,1020" fill="#555"/>
+
+  <rect x="115" y="1035" width="170" height="36" rx="10" fill="url(#processGrad)" filter="url(#shadow)"/>
+  <text x="200" y="1058" text-anchor="middle" fill="white" font-size="12" font-weight="bold">行程完成 🏁</text>
+
+  <!-- Formula box -->
+  <rect x="90" y="1085" width="220" height="60" rx="10" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+  <text x="200" y="1105" text-anchor="middle" fill="#856404" font-size="12" font-weight="bold">💰 费用计算</text>
+  <text x="200" y="1122" text-anchor="middle" fill="#333" font-size="11">费用 = £3 + £2 × 距离</text>
+  <text x="200" y="1138" text-anchor="middle" fill="#333" font-size="11">利润 = 费用 - £0.2 × 总里程</text>
+
+  <!-- Continue working decision -->
+  <line x1="200" y1="1145" x2="200" y2="1165" stroke="#555" stroke-width="2"/>
+  <rect x="160" y="1175" width="80" height="80" rx="5" fill="url(#decisionGrad)" transform="rotate(45,200,1215)" filter="url(#shadow)"/>
+  <text x="200" y="1210" text-anchor="middle" fill="white" font-size="11" font-weight="bold">继续</text>
+  <text x="200" y="1225" text-anchor="middle" fill="white" font-size="11" font-weight="bold">工作?</text>
+
+  <rect x="80" y="1245" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="100" y="1259" text-anchor="middle" fill="#F39C12" font-size="10" font-weight="bold">✓ 是</text>
+  <text x="100" y="1280" text-anchor="middle" fill="#666" font-size="10">↩️ 恢复空闲</text>
+
+  <rect x="260" y="1245" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="280" y="1259" text-anchor="middle" fill="#F39C12" font-size="10" font-weight="bold">✗ 否</text>
+
+  <line x1="280" y1="1265" x2="280" y2="1285" stroke="#555" stroke-width="2"/>
+  <rect x="210" y="1290" width="140" height="36" rx="10" fill="url(#endGrad)" filter="url(#shadow)"/>
+  <text x="280" y="1313" text-anchor="middle" fill="white" font-size="12" font-weight="bold">司机下线 👋</text>
+
+  <!-- Right branch (no match) -->
+  <line x1="520" y1="730" x2="600" y2="730" stroke="#555" stroke-width="2"/>
+  <line x1="700" y1="730" x2="700" y2="760" stroke="#555" stroke-width="2"/>
+  <polygon points="700,770 695,760 705,760" fill="#555"/>
+
+  <rect x="615" y="775" width="170" height="36" rx="10" fill="url(#riderGrad)" filter="url(#shadow)"/>
+  <text x="700" y="798" text-anchor="middle" fill="white" font-size="12" font-weight="bold">继续等待 ⏳</text>
+
+  <line x1="700" y1="811" x2="700" y2="835" stroke="#555" stroke-width="2"/>
+
+  <!-- Timeout decision -->
+  <rect x="660" y="845" width="80" height="80" rx="5" fill="url(#decisionGrad)" transform="rotate(45,700,885)" filter="url(#shadow)"/>
+  <text x="700" y="890" text-anchor="middle" fill="white" font-size="12" font-weight="bold">超时?</text>
+
+  <rect x="580" y="915" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="600" y="929" text-anchor="middle" fill="#F39C12" font-size="10" font-weight="bold">✗ 否</text>
+  <text x="600" y="950" text-anchor="middle" fill="#666" font-size="10">↩️ 重新匹配</text>
+
+  <rect x="780" y="915" width="40" height="20" rx="10" fill="#fef9e7"/>
+  <text x="800" y="929" text-anchor="middle" fill="#F39C12" font-size="10" font-weight="bold">✓ 是</text>
+
+  <line x1="800" y1="935" x2="800" y2="960" stroke="#555" stroke-width="2"/>
+  <rect x="725" y="965" width="150" height="36" rx="10" fill="url(#endGrad)" filter="url(#shadow)"/>
+  <text x="800" y="988" text-anchor="middle" fill="white" font-size="12" font-weight="bold">乘客放弃 😞</text>
+
+  <!-- Legend -->
+  <rect x="100" y="1350" width="700" height="35" rx="10" fill="#f8f9fa"/>
+  <rect x="120" y="1358" width="20" height="20" rx="5" fill="url(#driverGrad)"/>
+  <text x="145" y="1373" fill="#333" font-size="11">司机事件</text>
+  <rect x="230" y="1358" width="20" height="20" rx="5" fill="url(#riderGrad)"/>
+  <text x="255" y="1373" fill="#333" font-size="11">乘客事件</text>
+  <rect x="340" y="1358" width="20" height="20" rx="5" fill="url(#matchGrad)"/>
+  <text x="365" y="1373" fill="#333" font-size="11">匹配/计费</text>
+  <rect x="450" y="1358" width="20" height="20" rx="5" fill="url(#processGrad)"/>
+  <text x="475" y="1373" fill="#333" font-size="11">行程过程</text>
+  <rect x="560" y="1358" width="20" height="20" rx="5" fill="url(#endGrad)"/>
+  <text x="585" y="1373" fill="#333" font-size="11">结束状态</text>
+  <rect x="670" y="1358" width="20" height="20" rx="5" fill="url(#decisionGrad)" transform="rotate(45,680,1368)"/>
+  <text x="700" y="1373" fill="#333" font-size="11">决策点</text>
+</svg>

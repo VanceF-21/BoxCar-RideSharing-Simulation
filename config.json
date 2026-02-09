@@ -1,0 +1,95 @@
+{
+    "_comment": "BoxCar Ride-Sharing Simulation Configuration",
+    "_version": "2.0",
+
+    "simulation": {
+        "simulation_time": 168.0,
+        "warmup_time": 24.0,
+        "random_seed": null,
+        "verbose": false
+    },
+
+    "map": {
+        "size": 20.0
+    },
+
+    "_comment_mode": "mode: 'baseline' = all params from PDF distributions; 'data_driven' = auto-estimate from real data files",
+    "mode": "baseline",
+
+    "baseline_params": {
+        "_description": "All parameters from BoxCar PDF assumptions (Section 1 of project spec)",
+        "driver": {
+            "arrival_rate": 3.0,
+            "_arrival_dist": "exponential(3/hour) inter-arrival",
+            "availability_min": 5.0,
+            "availability_max": 8.0,
+            "_availability_dist": "uniform(5, 8) hours"
+        },
+        "rider": {
+            "arrival_rate": 30.0,
+            "_arrival_dist": "exponential(30/hour) inter-arrival",
+            "patience_rate": 5.0,
+            "_patience_dist": "exponential(5/hour), mean = 12 min"
+        },
+        "trip": {
+            "avg_speed": 20.0,
+            "time_variation": 0.2,
+            "_trip_time_dist": "uniform(0.8*mu_t, 1.2*mu_t) where mu_t = d_OD / 20"
+        },
+        "fare": {
+            "base_fare": 3.0,
+            "per_mile_rate": 2.0,
+            "petrol_cost_per_mile": 0.20
+        }
+    },
+
+    "data_driven_params": {
+        "_description": "Parameters auto-estimated from real data (drivers.xlsx & riders.xlsx). Values here are fallback defaults; when mode=data_driven, the system re-estimates from data at runtime.",
+        "data_files": {
+            "driver_data": "./data/drivers.xlsx",
+            "rider_data": "./data/riders.xlsx"
+        },
+        "update_fields": [
+            "driver_arrival_rate",
+            "driver_availability_min",
+            "driver_availability_max",
+            "rider_arrival_rate",
+            "avg_speed"
+        ],
+        "_note": "Fields listed in update_fields will be overridden by data estimates. Other params (fare, patience, trip_variation) keep baseline values."
+    },
+
+    "output": {
+        "directory": "./output",
+        "log_file": null
+    },
+
+    "scenarios": {
+        "baseline": {
+            "_description": "Pure BoxCar PDF assumptions - all inputs from specified distributions"
+        },
+        "data_driven": {
+            "_description": "Estimate parameters from real data, update baseline where data is available"
+        },
+        "high_demand": {
+            "_description": "50% more riders (based on baseline)",
+            "rider": {"arrival_rate": 45.0}
+        },
+        "more_drivers": {
+            "_description": "67% more drivers (based on baseline)",
+            "driver": {"arrival_rate": 5.0}
+        },
+        "longer_patience": {
+            "_description": "Riders more patient (mean 20 min)",
+            "rider": {"patience_rate": 3.0}
+        },
+        "faster_traffic": {
+            "_description": "25% faster average speed",
+            "trip": {"avg_speed": 25.0}
+        },
+        "surge_pricing": {
+            "_description": "Higher fares during peak",
+            "fare": {"base_fare": 5.0, "per_mile_rate": 3.0}
+        }
+    }
+}
