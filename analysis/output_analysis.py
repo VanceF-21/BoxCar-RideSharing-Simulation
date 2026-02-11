@@ -148,10 +148,15 @@ class OutputAnalyzer:
 
         ci = self.calculate_confidence_interval(values)
 
+        n = len(values)
+        variance = sum((x - ci.mean) ** 2 for x in values) / (n - 1) if n > 1 else 0.0
+        std_dev = math.sqrt(variance)
+
         return {
             'metric': metric_name,
-            'n_replications': len(values),
+            'n_replications': n,
             'mean': ci.mean,
+            'std': std_dev,
             'ci_lower': ci.lower,
             'ci_upper': ci.upper,
             'std_error': ci.std_error,
@@ -294,15 +299,24 @@ def analyze_replications(stats_list: List) -> Dict:
         analyzer.add_replication({
             'abandonment_rate': summary['rider_metrics']['abandonment_rate'],
             'avg_waiting_time': summary['rider_metrics']['average_waiting_time'],
+            'pickup_waiting_time_p90': summary['rider_metrics']['pickup_waiting_time_p90'],
             'avg_hourly_earnings': summary['driver_metrics']['average_hourly_earnings'],
-            'gini_coefficient': summary['driver_metrics']['earnings_distribution']['gini'],
+            'avg_net_hourly_earnings': summary['driver_metrics']['average_net_hourly_earnings'],
+            'time_weighted_net_hourly_earnings': summary['driver_metrics']['time_weighted_net_hourly_earnings'],
+            'fairness_ratio': summary['driver_metrics']['fairness_ratio'],
             'avg_utilization': summary['driver_metrics']['average_utilization'],
+            'avg_rest_fraction': summary['driver_metrics']['average_rest_fraction'],
+            'long_rest_prob_15min': summary['driver_metrics']['long_rest_prob_15min'],
+            'long_rest_prob_30min': summary['driver_metrics']['long_rest_prob_30min'],
             'total_revenue': summary['system_metrics']['total_revenue'],
         })
 
     # Generate analysis for each metric
-    metrics = ['abandonment_rate', 'avg_waiting_time', 'avg_hourly_earnings',
-               'gini_coefficient', 'avg_utilization', 'total_revenue']
+    metrics = ['abandonment_rate', 'avg_waiting_time', 'pickup_waiting_time_p90',
+               'avg_hourly_earnings', 'avg_net_hourly_earnings',
+               'time_weighted_net_hourly_earnings', 'fairness_ratio',
+               'avg_utilization', 'avg_rest_fraction',
+               'long_rest_prob_15min', 'long_rest_prob_30min', 'total_revenue']
 
     results = {}
     for metric in metrics:

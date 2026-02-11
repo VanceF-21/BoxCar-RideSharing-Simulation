@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BoxCar 司机-乘客交互流程图</title>
+    <title>BoxCar Driver-Rider Interaction Flowchart</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
@@ -182,85 +182,79 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚗 BoxCar 司机-乘客交互流程图</h1>
-        <p class="subtitle">Driver-Rider Interaction Flowchart</p>
+        <h1>🚗 BoxCar Driver-Rider Interaction Flowchart</h1>
+        <p class="subtitle">System Process Overview</p>
 
         <div class="flowchart">
-            <!-- Start -->
-            <div class="start-end">开始</div>
+            <div class="start-end">Start</div>
             <div class="arrow arrow-down">➜</div>
 
-            <!-- Parallel branches header -->
             <div class="row">
                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-                    <div class="section-title driver-title">👨‍✈️ 司机流程</div>
-                    <div class="param-box param-driver">到达率: λ=3/小时<br>在线时长: U(5,8)小时</div>
+                    <div class="section-title driver-title">👨‍✈️ Driver Flow</div>
+                    <div class="param-box param-driver">Arrival Rate: λ=3/hr<br>Online Duration: U(5,8) hrs</div>
                 </div>
                 <div style="width: 100px;"></div>
                 <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
-                    <div class="section-title rider-title">🙋 乘客流程</div>
-                    <div class="param-box param-rider">到达率: λ=30/小时<br>耐心时间: 平均12分钟</div>
+                    <div class="section-title rider-title">🙋 Rider Flow</div>
+                    <div class="param-box param-rider">Arrival Rate: λ=30/hr<br>Patience Time: avg 12 min</div>
                 </div>
             </div>
 
-            <!-- Parallel arrival -->
             <div class="row">
                 <div class="left-branch">
-                    <div class="box driver">司机到达系统</div>
+                    <div class="box driver">Driver Enters System</div>
                     <div class="connector"></div>
-                    <div class="box driver">随机位置 (x, y)</div>
+                    <div class="box driver">Random Location (x, y)</div>
                     <div class="connector"></div>
-                    <div class="box driver">状态: 空闲 🟢</div>
+                    <div class="box driver">Status: Idle 🟢</div>
                 </div>
                 <div class="right-branch">
-                    <div class="box rider">乘客到达系统</div>
+                    <div class="box rider">Rider Places Request</div>
                     <div class="connector"></div>
-                    <div class="box rider">起点 → 目的地</div>
+                    <div class="box rider">Origin → Destination</div>
                     <div class="connector"></div>
-                    <div class="box rider">状态: 等待中 ⏳</div>
+                    <div class="box rider">Status: Waiting ⏳</div>
                 </div>
             </div>
 
-            <!-- Converge to matching -->
             <div class="arrow arrow-down">➜</div>
-            <div class="box match" style="min-width: 200px;">🔗 匹配算法<br><small>(最近邻居)</small></div>
+            <div class="box match" style="min-width: 200px;">🔗 Matching Algorithm<br><small>(Nearest Neighbor)</small></div>
             <div class="arrow arrow-down">➜</div>
 
-            <!-- Decision -->
-            <div class="decision"><span>匹配<br>成功?</span></div>
+            <div class="decision"><span>Match<br>Success?</span></div>
 
-            <!-- Two branches after decision -->
             <div class="row" style="margin-top: 20px;">
                 <div class="left-branch">
-                    <div class="yes-no">✓ 是</div>
+                    <div class="yes-no">✓ Yes</div>
                     <div class="connector"></div>
-                    <div class="box process">司机接单 📱</div>
+                    <div class="box process">Driver Accepts Order 📱</div>
                     <div class="connector"></div>
-                    <div class="box process">前往乘客位置 🚗</div>
+                    <div class="box process">Dispatch to Rider 🚗</div>
                     <div class="connector"></div>
-                    <div class="box process">接到乘客 ✅</div>
+                    <div class="box process">Rider Picked Up ✅</div>
                     <div class="connector"></div>
-                    <div class="box process">前往目的地 🛣️</div>
+                    <div class="box process">Drive to Destination 🛣️</div>
                     <div class="connector"></div>
-                    <div class="box process">行程完成 🏁</div>
+                    <div class="box process">Trip Completed 🏁</div>
                     <div class="connector"></div>
                     <div class="formula-box">
-                        <strong>💰 费用计算</strong><br>
-                        费用 = £3 + £2 × 距离<br>
-                        利润 = 费用 - £0.2 × 总里程
+                        <strong>💰 Fare Calculation</strong><br>
+                        Fare = £3 + £2 × Distance<br>
+                        Profit = Fare - £0.2 × Total Mileage
                     </div>
                     <div class="connector"></div>
-                    <div class="decision" style="width:80px; height:80px;"><span style="font-size:11px;">继续<br>工作?</span></div>
+                    <div class="decision" style="width:80px; height:80px;"><span style="font-size:11px;">Keep<br>Working?</span></div>
                     <div class="row" style="margin-top:15px;">
                         <div style="text-align:center;">
-                            <div class="yes-no">✓ 是</div>
-                            <div style="font-size:11px; color:#666;">↩️ 恢复空闲</div>
+                            <div class="yes-no">✓ Yes</div>
+                            <div style="font-size:11px; color:#666;">↩️ Return to Idle</div>
                         </div>
                         <div style="width:30px;"></div>
                         <div style="text-align:center;">
-                            <div class="yes-no">✗ 否</div>
+                            <div class="yes-no">✗ No</div>
                             <div class="connector"></div>
-                            <div class="box end">司机下线 👋</div>
+                            <div class="box end">Driver Offline 👋</div>
                         </div>
                     </div>
                 </div>
@@ -268,47 +262,46 @@
                 <div style="width: 60px;"></div>
 
                 <div class="right-branch">
-                    <div class="yes-no">✗ 否</div>
+                    <div class="yes-no">✗ No</div>
                     <div class="connector"></div>
-                    <div class="box rider">继续等待 ⏳</div>
+                    <div class="box rider">Continue Waiting ⏳</div>
                     <div class="connector"></div>
-                    <div class="decision" style="width:80px; height:80px;"><span style="font-size:12px;">超时?</span></div>
+                    <div class="decision" style="width:80px; height:80px;"><span style="font-size:12px;">Timed Out?</span></div>
                     <div class="row" style="margin-top:15px;">
                         <div style="text-align:center;">
-                            <div class="yes-no">✗ 否</div>
-                            <div style="font-size:11px; color:#666;">↩️ 重新匹配</div>
+                            <div class="yes-no">✗ No</div>
+                            <div style="font-size:11px; color:#666;">↩️ Re-match</div>
                         </div>
                         <div style="width:30px;"></div>
                         <div style="text-align:center;">
-                            <div class="yes-no">✓ 是</div>
+                            <div class="yes-no">✓ Yes</div>
                             <div class="connector"></div>
-                            <div class="box end">乘客放弃 😞</div>
+                            <div class="box end">Rider Abandons 😞</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Legend -->
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-color" style="background: linear-gradient(135deg, #4A90D9, #357ABD);"></div>
-                    <span>司机事件</span>
+                    <span>Driver Events</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background: linear-gradient(135deg, #50C878, #3CB371);"></div>
-                    <span>乘客事件</span>
+                    <span>Rider Events</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background: linear-gradient(135deg, #FFD700, #FFA500);"></div>
-                    <span>匹配/计费</span>
+                    <span>Match/Fare</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background: linear-gradient(135deg, #FF6B6B, #ee5a5a);"></div>
-                    <span>行程过程</span>
+                    <span>Trip Process</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-color" style="background: linear-gradient(135deg, #9B59B6, #8E44AD);"></div>
-                    <span>结束状态</span>
+                    <span>End States</span>
                 </div>
             </div>
         </div>

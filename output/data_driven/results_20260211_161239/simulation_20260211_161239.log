@@ -1,0 +1,72 @@
+======================================================================
+BoxCar Ride-Sharing Simulation Log
+Started: 2026-02-11 16:12:39
+Logger: BoxCarSimulation
+======================================================================
+
+2026-02-11 16:12:39 [INFO    ] ============================================================
+2026-02-11 16:12:39 [INFO    ]   BoxCar Ride-Sharing Simulation
+2026-02-11 16:12:39 [INFO    ] ============================================================
+2026-02-11 16:12:39 [INFO    ] Started at: 2026-02-11 16:12:39
+2026-02-11 16:12:39 [INFO    ] Config file: config.json
+2026-02-11 16:12:39 [INFO    ] Output directory: ./output/data_driven/results_20260211_161239
+2026-02-11 16:12:39 [INFO    ] Log file: ./output/data_driven/results_20260211_161239/simulation_20260211_161239.log
+2026-02-11 16:12:39 [INFO    ] ============================================================
+2026-02-11 16:12:39 [INFO    ]   SCENARIO: data_driven (mode: data_driven)
+2026-02-11 16:12:39 [INFO    ] ============================================================
+2026-02-11 16:12:39 [INFO    ] --- Input Mode ---
+2026-02-11 16:12:39 [INFO    ] Mode 2 - Data-Driven (Real Data Estimates)
+  Parameters estimated from drivers.xlsx & riders.xlsx:
+  - Driver arrival: Exponential(rate=4.74/hr) [from data]
+  - Driver availability: Uniform(6.0, 8.0) hrs [from data]
+  - Rider arrival: Exponential(rate=34.60/hr) [from data]
+  - Rider patience: Exponential(rate=5.0/hr) [baseline - no data]
+  - Trip time: Uniform(0.8*mu, 1.2*mu), speed=19.97 mph [from data]
+  - Fare: base=3.0 + 2.0/mile [baseline]
+
+  Parameter comparison (Assumed vs Estimated):
+    driver_arrival_rate: 3.00 -> 4.74 (+58.1%)
+    driver_availability_min: 5.00 -> 6.00 (+20.0%)
+    driver_availability_max: 8.00 -> 8.00 (-0.0%)
+    rider_arrival_rate: 30.00 -> 34.60 (+15.3%)
+    avg_speed: 20.00 -> 19.97 (-0.1%)
+2026-02-11 16:12:39 [INFO    ] --- Data-Driven Parameter Updates ---
+2026-02-11 16:12:39 [INFO    ] Parameter               | PDF Assumed | Data Estimated | Diff %
+2026-02-11 16:12:39 [INFO    ] ------------------------+-------------+----------------+-------
+2026-02-11 16:12:39 [INFO    ] driver_arrival_rate     | 3.00        | 4.74           | +58.1%
+2026-02-11 16:12:39 [INFO    ] driver_availability_min | 5.00        | 6.00           | +20.0%
+2026-02-11 16:12:39 [INFO    ] driver_availability_max | 8.00        | 8.00           | -0.0% 
+2026-02-11 16:12:39 [INFO    ] rider_arrival_rate      | 30.00       | 34.60          | +15.3%
+2026-02-11 16:12:39 [INFO    ] avg_speed               | 20.00       | 19.97          | -0.1% 
+2026-02-11 16:12:39 [INFO    ] Replications: 3
+2026-02-11 16:12:39 [INFO    ] Matching algorithm: nearest
+2026-02-11 16:12:39 [INFO    ] Simulation time: 168.0 hours
+2026-02-11 16:12:41 [INFO    ] Replications: [██████████░░░░░░░░░░░░░░░░░░░░] 1/3 (33.3%)
+2026-02-11 16:12:42 [INFO    ] Replications: [████████████████████░░░░░░░░░░] 2/3 (66.7%)
+2026-02-11 16:12:43 [INFO    ] Replications: [██████████████████████████████] 3/3 (100.0%)
+2026-02-11 16:12:43 [INFO    ] --- Results for data_driven ---
+2026-02-11 16:12:43 [INFO    ] Metric                            | Mean        | 95% CI                    
+2026-02-11 16:12:43 [INFO    ] ----------------------------------+-------------+---------------------------
+2026-02-11 16:12:43 [INFO    ] abandonment_rate                  | 0.0451      | [0.0245, 0.0657]          
+2026-02-11 16:12:43 [INFO    ] avg_waiting_time                  | 0.2644      | [0.2400, 0.2887]          
+2026-02-11 16:12:43 [INFO    ] pickup_waiting_time_p90           | 0.5599      | [0.5008, 0.6190]          
+2026-02-11 16:12:43 [INFO    ] avg_hourly_earnings               | 22.1873     | [21.3986, 22.9760]        
+2026-02-11 16:12:43 [INFO    ] avg_net_hourly_earnings           | 19.2417     | [18.6083, 19.8750]        
+2026-02-11 16:12:43 [INFO    ] time_weighted_net_hourly_earnings | 19.4568     | [18.8839, 20.0297]        
+2026-02-11 16:12:43 [INFO    ] fairness_ratio                    | 1.6753      | [1.6142, 1.7365]          
+2026-02-11 16:12:43 [INFO    ] gini_coefficient                  | 0.1118      | [0.1025, 0.1211]          
+2026-02-11 16:12:43 [INFO    ] avg_utilization                   | 0.7381      | [0.6976, 0.7786]          
+2026-02-11 16:12:43 [INFO    ] avg_rest_fraction                 | 0.2619      | [0.2214, 0.3024]          
+2026-02-11 16:12:43 [INFO    ] long_rest_prob_15min              | 0.8579      | [0.7993, 0.9165]          
+2026-02-11 16:12:43 [INFO    ] long_rest_prob_30min              | 0.6683      | [0.5691, 0.7675]          
+2026-02-11 16:12:43 [INFO    ] total_revenue                     | 113631.4715 | [112348.0860, 114914.8570]
+2026-02-11 16:12:43 [INFO    ] Results saved to: ./output/data_driven/results_20260211_161239/results_20260211_161243.json
+2026-02-11 16:12:43 [INFO    ] ============================================================
+2026-02-11 16:12:43 [INFO    ]   Simulation Complete
+2026-02-11 16:12:43 [INFO    ] ============================================================
+2026-02-11 16:12:43 [INFO    ] Finished at: 2026-02-11 16:12:43
+2026-02-11 16:12:43 [INFO    ] Log saved to: ./output/data_driven/results_20260211_161239/simulation_20260211_161239.log
+
+======================================================================
+Log ended: 2026-02-11 16:12:43
+======================================================================

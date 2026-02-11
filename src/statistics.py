@@ -35,10 +35,14 @@ class DriverStatistics:
     total_earnings: float
     total_distance: float
     net_earnings: float
-    hourly_earnings: float
-    idle_time: float
-    driving_time: float
-    utilization: float  # driving_time / online_duration
+    hourly_earnings: float        # gross earnings / online_duration
+    net_hourly_earnings: float = 0.0  # net_earnings / online_duration (Ê_i in report)
+    idle_time: float = 0.0
+    driving_time: float = 0.0
+    utilization: float = 0.0      # B_i / H_i (busy fraction)
+    rest_fraction: float = 0.0    # R_i / H_i = 1 - utilization
+    idle_blocks: list = field(default_factory=list)  # list of idle block durations
+    max_idle_block: float = 0.0   # ℓ_max_i = max_k ℓ_ik
 
 
 class SimulationStatistics:
@@ -123,6 +127,16 @@ class SimulationStatistics:
             'count': len(waiting_times)
         }
 
+    def get_pickup_waiting_time_p90(self) -> float:
+        """Calculate P90 of pickup waiting times (tail KPI from report Table 1)"""
+        waiting_times = [r.waiting_time for r in self.rider_stats
+                         if r.waiting_time is not None]
+        if not waiting_times:
+            return 0.0
+        sorted_times = sorted(waiting_times)
+        idx = int(math.ceil(0.9 * len(sorted_times))) - 1
+        return sorted_times[max(0, idx)]
+
     def get_average_trip_distance(self) -> float:
         """Calculate average trip distance"""
         distances = [r.trip_distance for r in self.rider_stats
@@ -171,6 +185,59 @@ class SimulationStatistics:
         cumsum = sum((i + 1) * v for i, v in enumerate(sorted_values))
         return (2 * cumsum) / (n * sum(sorted_values)) - (n + 1) / n
 
+    def get_average_net_hourly_earnings(self) -> float:
+        """Calculate system-level average net earnings per hour (Ē from report Table 2)"""
+        if not self.driver_stats:
+            return 0.0
+        earnings = [d.net_hourly_earnings for d in self.driver_stats]
+        return sum(earnings) / len(earnings)
+
+    def get_time_weighted_net_hourly_earnings(self) -> float:
+        """Calculate time-weighted system net earnings per hour (Ē_w from report)"""
+        if not self.driver_stats:
+            return 0.0
+        total_profit = sum(d.net_earnings for d in self.driver_stats)
+        total_hours = sum(d.online_duration for d in self.driver_stats)
+        if total_hours <= 0:
+            return 0.0
+        return total_profit / total_hours
+
+    def get_fairness_ratio(self) -> float:
+        """Calculate fairness ratio P90(E_i)/P10(E_i) (report Table 2, smaller is fairer)"""
+        if not self.driver_stats:
+            return 0.0
+        earnings = sorted([d.net_hourly_earnings for d in self.driver_stats])
+        n = len(earnings)
+        if n < 2:
+            return 1.0
+        p10_idx = max(0, int(math.ceil(0.1 * n)) - 1)
+        p90_idx = max(0, int(math.ceil(0.9 * n)) - 1)
+        p10 = earnings[p10_idx]
+        p90 = earnings[p90_idx]
+        if p10 <= 0:
+            return float('inf')
+        return p90 / p10
+
+    def get_average_rest_fraction(self) -> float:
+        """Calculate average rest fraction across all drivers (1 - U_i)"""
+        if not self.driver_stats:
+            return 0.0
+        rest_fracs = [d.rest_fraction for d in self.driver_stats]
+        return sum(rest_fracs) / len(rest_fracs)
+
+    def get_long_rest_probability(self, theta: float = 0.25) -> float:
+        """
+        Calculate long-rest probability p̂^rest(θ) from report Table 2.
+        Fraction of drivers whose max idle block >= θ hours.
+
+        Args:
+            theta: rest threshold in hours (default 0.25 = 15 minutes)
+        """
+        if not self.driver_stats:
+            return 0.0
+        count = sum(1 for d in self.driver_stats if d.max_idle_block >= theta)
+        return count / len(self.driver_stats)
+
     def get_average_utilization(self) -> float:
         """Calculate average driver utilization"""
         if not self.driver_stats:
@@ -210,14 +277,21 @@ class SimulationStatistics:
                 'abandoned_rides': self._abandoned_rides,
                 'abandonment_rate': self.get_abandonment_rate(),
                 'average_waiting_time': self.get_average_waiting_time(),
+                'pickup_waiting_time_p90': self.get_pickup_waiting_time_p90(),
                 'waiting_time_stats': self.get_waiting_time_distribution(),
                 'average_trip_distance': self.get_average_trip_distance(),
             },
             'driver_metrics': {
                 'total_drivers': len(self.driver_stats),
                 'average_hourly_earnings': self.get_average_hourly_earnings(),
+                'average_net_hourly_earnings': self.get_average_net_hourly_earnings(),
+                'time_weighted_net_hourly_earnings': self.get_time_weighted_net_hourly_earnings(),
+                'fairness_ratio': self.get_fairness_ratio(),
                 'earnings_distribution': self.get_earnings_distribution(),
                 'average_utilization': self.get_average_utilization(),
+                'average_rest_fraction': self.get_average_rest_fraction(),
+                'long_rest_prob_15min': self.get_long_rest_probability(0.25),
+                'long_rest_prob_30min': self.get_long_rest_probability(0.5),
                 'trips_per_driver': self.get_trips_per_driver(),
             },
             'system_metrics': {
@@ -263,23 +337,30 @@ class SimulationStatistics:
         print("SIMULATION RESULTS SUMMARY")
         print("=" * 60)
 
-        print("\n--- Rider Metrics ---")
+        print("\n--- Rider KPIs (Table 1) ---")
         rm = summary['rider_metrics']
         print(f"Total Riders: {rm['total_riders']}")
         print(f"Completed Rides: {rm['completed_rides']}")
         print(f"Abandoned Rides: {rm['abandoned_rides']}")
-        print(f"Abandonment Rate: {rm['abandonment_rate']:.2%}")
-        print(f"Average Waiting Time: {rm['average_waiting_time'] * 60:.2f} minutes")
+        print(f"Abandonment Rate (p_abd): {rm['abandonment_rate']:.4f} ({rm['abandonment_rate']:.2%})")
+        print(f"Mean Pickup Wait (W_pu): {rm['average_waiting_time'] * 60:.2f} minutes")
+        print(f"P90 Pickup Wait: {rm['pickup_waiting_time_p90'] * 60:.2f} minutes")
         print(f"Average Trip Distance: {rm['average_trip_distance']:.2f} miles")
 
-        print("\n--- Driver Metrics ---")
+        print("\n--- Driver KPIs (Table 2) ---")
         dm = summary['driver_metrics']
         print(f"Total Drivers: {dm['total_drivers']}")
-        print(f"Average Hourly Earnings: £{dm['average_hourly_earnings']:.2f}")
+        print(f"Avg Net Earnings/hr (E_bar): £{dm['average_net_hourly_earnings']:.2f}")
+        print(f"Time-Wtd Net Earnings/hr (E_bar_w): £{dm['time_weighted_net_hourly_earnings']:.2f}")
+        fr = dm['fairness_ratio']
+        print(f"Fairness Ratio P90/P10: {'inf' if fr == float('inf') else f'{fr:.2f}'}")
+        print(f"Avg Utilization (U_hat): {dm['average_utilization']:.4f} ({dm['average_utilization']:.2%})")
+        print(f"Avg Rest Fraction (1-U): {dm['average_rest_fraction']:.4f}")
+        print(f"Long-Rest Prob (theta=15min): {dm['long_rest_prob_15min']:.4f}")
+        print(f"Long-Rest Prob (theta=30min): {dm['long_rest_prob_30min']:.4f}")
         ed = dm['earnings_distribution']
-        print(f"Earnings Std Dev: £{ed['std']:.2f}")
         print(f"Gini Coefficient: {ed['gini']:.3f}")
-        print(f"Average Utilization: {dm['average_utilization']:.2%}")
+        print(f"Avg Gross Earnings/hr: £{dm['average_hourly_earnings']:.2f}")
 
         tpd = dm['trips_per_driver']
         print(f"Avg Trips per Driver: {tpd['mean']:.2f}")

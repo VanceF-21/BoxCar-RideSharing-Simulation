@@ -1,0 +1,56 @@
+======================================================================
+BoxCar Ride-Sharing Simulation Log
+Started: 2026-02-11 16:26:25
+Logger: BoxCarSimulation
+======================================================================
+
+2026-02-11 16:26:25 [INFO    ] ============================================================
+2026-02-11 16:26:25 [INFO    ]   BoxCar Ride-Sharing Simulation
+2026-02-11 16:26:25 [INFO    ] ============================================================
+2026-02-11 16:26:25 [INFO    ] Started at: 2026-02-11 16:26:25
+2026-02-11 16:26:25 [INFO    ] Config file: config.json
+2026-02-11 16:26:25 [INFO    ] Output directory: ./output/baseline/results_20260211_162625
+2026-02-11 16:26:25 [INFO    ] Log file: ./output/baseline/results_20260211_162625/simulation_20260211_162625.log
+2026-02-11 16:26:25 [INFO    ] ============================================================
+2026-02-11 16:26:25 [INFO    ]   SCENARIO: baseline (mode: baseline)
+2026-02-11 16:26:25 [INFO    ] ============================================================
+2026-02-11 16:26:25 [INFO    ] --- Input Mode ---
+2026-02-11 16:26:25 [INFO    ] Mode 1 - Baseline (PDF Assumptions)
+  All parameters generated from distributions specified in project spec:
+  - Driver arrival: Exponential(rate=3.0/hr)
+  - Driver availability: Uniform(5.0, 8.0) hrs
+  - Rider arrival: Exponential(rate=30.0/hr)
+  - Rider patience: Exponential(rate=5.0/hr)
+  - Trip time: Uniform(0.8*mu, 1.2*mu), speed=20.0 mph
+  - Fare: base=3.0 + 2.0/mile
+2026-02-11 16:26:25 [INFO    ] Replications: 3
+2026-02-11 16:26:25 [INFO    ] Matching algorithm: nearest
+2026-02-11 16:26:25 [INFO    ] Simulation time: 168.0 hours
+2026-02-11 16:26:26 [INFO    ] Replications: [██████████░░░░░░░░░░░░░░░░░░░░] 1/3 (33.3%)
+2026-02-11 16:26:27 [INFO    ] Replications: [████████████████████░░░░░░░░░░] 2/3 (66.7%)
+2026-02-11 16:26:28 [INFO    ] Replications: [██████████████████████████████] 3/3 (100.0%)
+2026-02-11 16:26:28 [INFO    ] --- Results for baseline ---
+2026-02-11 16:26:28 [INFO    ] Metric                            | Mean       | Std      | 95% CI                  
+2026-02-11 16:26:28 [INFO    ] ----------------------------------+------------+----------+-------------------------
+2026-02-11 16:26:28 [INFO    ] abandonment_rate                  | 0.2528     | 0.0192   | [0.2244, 0.2813]        
+2026-02-11 16:26:28 [INFO    ] avg_waiting_time                  | 0.4091     | 0.0185   | [0.3816, 0.4366]        
+2026-02-11 16:26:28 [INFO    ] pickup_waiting_time_p90           | 0.7530     | 0.0253   | [0.7154, 0.7906]        
+2026-02-11 16:26:28 [INFO    ] avg_hourly_earnings               | 24.6420    | 0.4541   | [23.9679, 25.3161]      
+2026-02-11 16:26:28 [INFO    ] avg_net_hourly_earnings           | 20.9070    | 0.4227   | [20.2795, 21.5344]      
+2026-02-11 16:26:28 [INFO    ] time_weighted_net_hourly_earnings | 21.1011    | 0.3900   | [20.5222, 21.6800]      
+2026-02-11 16:26:28 [INFO    ] fairness_ratio                    | 1.4339     | 0.0320   | [1.3864, 1.4814]        
+2026-02-11 16:26:28 [INFO    ] avg_utilization                   | 0.9347     | 0.0158   | [0.9113, 0.9582]        
+2026-02-11 16:26:28 [INFO    ] avg_rest_fraction                 | 0.0653     | 0.0158   | [0.0418, 0.0887]        
+2026-02-11 16:26:28 [INFO    ] long_rest_prob_15min              | 0.3394     | 0.0859   | [0.2119, 0.4669]        
+2026-02-11 16:26:28 [INFO    ] long_rest_prob_30min              | 0.1430     | 0.0397   | [0.0841, 0.2020]        
+2026-02-11 16:26:28 [INFO    ] total_revenue                     | 74826.6353 | 640.5928 | [73875.7602, 75777.5105]
+2026-02-11 16:26:28 [INFO    ] Results saved to: ./output/baseline/results_20260211_162625/results_20260211_162628.json
+2026-02-11 16:26:28 [INFO    ] ============================================================
+2026-02-11 16:26:28 [INFO    ]   Simulation Complete
+2026-02-11 16:26:28 [INFO    ] ============================================================
+2026-02-11 16:26:28 [INFO    ] Finished at: 2026-02-11 16:26:28
+2026-02-11 16:26:28 [INFO    ] Log saved to: ./output/baseline/results_20260211_162625/simulation_20260211_162625.log
+
+======================================================================
+Log ended: 2026-02-11 16:26:28
+======================================================================

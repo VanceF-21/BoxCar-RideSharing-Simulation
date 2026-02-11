@@ -427,9 +427,18 @@ class RideSharingSimulation:
             if driver.status == DriverStatus.IDLE:
                 driver.go_offline(self.current_time)
 
-            online_duration = min(driver.offline_time, self.config.simulation_time) - driver.available_time
+            # Actual online duration = total idle time + total driving time
+            # This accounts for drivers who work past their scheduled offline time
+            actual_online = driver.total_idle_time + driver.total_driving_time
+            scheduled_online = min(driver.offline_time, self.config.simulation_time) - driver.available_time
+            online_duration = max(actual_online, scheduled_online)
             if online_duration <= 0:
                 continue
+
+            net_earn = driver.get_net_earnings(self.config.petrol_cost_per_mile)
+            utilization = driver.total_driving_time / online_duration if online_duration > 0 else 0.0
+            net_hourly = net_earn / online_duration if online_duration > 0 else 0.0
+            max_idle = max(driver.idle_blocks) if driver.idle_blocks else 0.0
 
             stat = DriverStatistics(
                 driver_id=driver.driver_id,
@@ -439,12 +448,15 @@ class RideSharingSimulation:
                 total_trips=driver.total_trips,
                 total_earnings=driver.total_earnings,
                 total_distance=driver.total_distance,
-                net_earnings=driver.get_net_earnings(self.config.petrol_cost_per_mile),
+                net_earnings=net_earn,
                 hourly_earnings=driver.get_hourly_earnings(),
+                net_hourly_earnings=net_hourly,
                 idle_time=driver.total_idle_time,
                 driving_time=driver.total_driving_time,
-                utilization=driver.total_driving_time / online_duration
-                            if online_duration > 0 else 0.0
+                utilization=utilization,
+                rest_fraction=1.0 - utilization,
+                idle_blocks=list(driver.idle_blocks),
+                max_idle_block=max_idle,
             )
             self.stats.record_driver(stat)
 

@@ -277,9 +277,10 @@ def run_single_scenario(cfg: Config, num_replications: int,
             results_rows.append([
                 metric,
                 f"{stat['mean']:.4f}",
+                f"{stat['std']:.4f}",
                 f"[{stat['ci_lower']:.4f}, {stat['ci_upper']:.4f}]"
             ])
-    logger.table(headers=['Metric', 'Mean', '95% CI'], rows=results_rows)
+    logger.table(headers=['Metric', 'Mean', 'Std', '95% CI'], rows=results_rows)
 
     return {
         'scenario': cfg.scenario_name,
@@ -311,16 +312,24 @@ def compare_all_scenarios(config_path: str, num_replications: int,
     for scenario_name, result in results.items():
         analysis = result['analysis']
         mode_tag = f" [{result['mode']}]"
+        # Safe extraction with fallback
+        def _m(key):
+            return analysis.get(key, {}).get('mean', 0)
+        fr = _m('fairness_ratio')
+        fr_str = f"{fr:.2f}" if fr != float('inf') else "inf"
         comparison_rows.append([
             scenario_name + mode_tag,
-            f"{analysis['abandonment_rate']['mean'] * 100:.2f}%",
-            f"{analysis['avg_waiting_time']['mean'] * 60:.2f}",
-            f"£{analysis['avg_hourly_earnings']['mean']:.2f}",
-            f"{analysis['gini_coefficient']['mean']:.3f}"
+            f"{_m('abandonment_rate') * 100:.2f}%",
+            f"{_m('avg_waiting_time') * 60:.2f}",
+            f"{_m('pickup_waiting_time_p90') * 60:.2f}",
+            f"£{_m('avg_net_hourly_earnings'):.2f}",
+            f"{fr_str}",
+            f"{_m('avg_rest_fraction'):.3f}",
+            f"{_m('long_rest_prob_15min'):.3f}",
         ])
 
     logger.table(
-        headers=['Scenario', 'Abandon Rate', 'Wait(min)', 'Earnings', 'Gini'],
+        headers=['Scenario', 'Abandon%', 'Wait(min)', 'P90Wait', 'NetEarn/hr', 'Fair', 'Rest', 'LongRest'],
         rows=comparison_rows
     )
 
@@ -335,6 +344,8 @@ def save_results(results: dict, output_dir: str, logger: Logger) -> str:
     filename = os.path.join(output_dir, f"results_{timestamp}.json")
 
     def convert(obj):
+        if isinstance(obj, float) and (obj == float('inf') or obj == float('-inf') or obj != obj):
+            return str(obj)  # "inf", "-inf", "nan"
         if hasattr(obj, '__dict__'):
             return obj.__dict__
         return str(obj)

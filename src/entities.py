@@ -79,6 +79,7 @@ class Driver:
     total_idle_time: float = 0.0
     total_driving_time: float = 0.0
     last_idle_start: float = 0.0
+    idle_blocks: list = field(default_factory=list)  # list of idle block durations
 
     def __hash__(self):
         return hash(self.driver_id)
@@ -94,13 +95,17 @@ class Driver:
     def go_offline(self, time: float):
         """Driver goes offline"""
         if self.status == DriverStatus.IDLE:
-            self.total_idle_time += time - self.last_idle_start
+            idle_duration = time - self.last_idle_start
+            self.total_idle_time += idle_duration
+            self.idle_blocks.append(idle_duration)
         self.status = DriverStatus.OFFLINE
 
     def assign_rider(self, rider: 'Rider', time: float):
         """Assign a rider to this driver"""
         if self.status == DriverStatus.IDLE:
-            self.total_idle_time += time - self.last_idle_start
+            idle_duration = time - self.last_idle_start
+            self.total_idle_time += idle_duration
+            self.idle_blocks.append(idle_duration)
         self.current_rider = rider
         self.status = DriverStatus.DRIVING_TO_PICKUP
 
