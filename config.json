@@ -3,8 +3,8 @@
     "_version": "2.0",
 
     "simulation": {
-        "simulation_time": 168.0,
-        "warmup_time": 24.0,
+        "simulation_time": 960.0,
+        "warmup_time": 96.0,
         "random_seed": null,
         "verbose": false
     },
