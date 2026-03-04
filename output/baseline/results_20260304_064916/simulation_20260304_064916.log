@@ -1,0 +1,36 @@
+======================================================================
+BoxCar Ride-Sharing Simulation Log
+Started: 2026-03-04 06:49:16
+Logger: BoxCarSimulation
+======================================================================
+
+2026-03-04 06:49:16 [INFO    ] Overriding warmup time: 5.0 hours
+2026-03-04 06:49:16 [INFO    ] ============================================================
+2026-03-04 06:49:16 [INFO    ]   BoxCar Ride-Sharing Simulation
+2026-03-04 06:49:16 [INFO    ] ============================================================
+2026-03-04 06:49:16 [INFO    ] Started at: 2026-03-04 06:49:16
+2026-03-04 06:49:16 [INFO    ] Config file: config.json
+2026-03-04 06:49:16 [INFO    ] Output directory: ./output\baseline\results_20260304_064916
+2026-03-04 06:49:16 [INFO    ] Log file: ./output\baseline\results_20260304_064916\simulation_20260304_064916.log
+2026-03-04 06:49:16 [INFO    ] ============================================================
+2026-03-04 06:49:16 [INFO    ]   SCENARIO: baseline (mode: baseline)
+2026-03-04 06:49:16 [INFO    ] ============================================================
+2026-03-04 06:49:16 [INFO    ] --- Input Mode ---
+2026-03-04 06:49:16 [INFO    ] Mode 1 - Baseline (PDF Assumptions)
+  All parameters generated from distributions specified in project spec:
+  - Driver arrival: Exponential(rate=4.74/hr)
+  - Driver availability: Uniform(6.0, 8.0) hrs
+  - Rider arrival: Exponential(rate=34.56/hr)
+  - Rider patience: Exponential(rate=5.0/hr)
+  - Trip time: Uniform(0.8*mu, 1.2*mu), speed=20.0 mph
+  - Fare: base=3.0 + 2.0/mile
+2026-03-04 06:49:16 [INFO    ] Replications: 50
+2026-03-04 06:49:16 [INFO    ] Matching algorithm: nearest
+2026-03-04 06:49:16 [INFO    ] Simulation time: 1000.0 hours
+2026-03-04 06:49:16 [INFO    ] Using base random seed: 1 (replications will use seed base+i)
+2026-03-04 06:49:41 [INFO    ] Replications: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 1/50 (2.0%)
+2026-03-04 06:50:03 [WARNING ] Simulation interrupted by user
+
+======================================================================
+Log ended: 2026-03-04 06:50:03
+======================================================================
