@@ -64,8 +64,8 @@ Available scenarios: {', '.join(available_scenarios)}
     parser.add_argument(
         '--replications', '-r',
         type=int,
-        default=10,
-        help='Number of replications to run (default: 10)'
+        default=50,
+        help='Number of replications to run (default: 50)'
     )
 
     parser.add_argument(
@@ -119,6 +119,13 @@ Available scenarios: {', '.join(available_scenarios)}
         type=int,
         default=None,
         help='Random seed for reproducibility (default: from config.json)'
+    )
+
+    parser.add_argument(
+        '--warmup', '-w',
+        type=float,
+        default=None,
+        help='Warmup time in hours (overrides config.json)'
     )
 
     parser.add_argument(
@@ -252,14 +259,15 @@ def run_single_scenario(cfg: Config, num_replications: int,
     matching = get_matching_algorithm(matching_name)
     all_stats = []
 
-    base_seed = cfg.random_seed
+    # Determine base seed for replications.
+    # If user did not set `random_seed` in config, use 1 so replications
+    # use seeds 1..N and are reproducible.
+    base_seed = cfg.random_seed if cfg.random_seed is not None else 1
+    logger.info(f"Using base random seed: {base_seed} (replications will use seed base+i)")
+
     for i in range(num_replications):
-        # Update seed for each replication
-        # If base_seed is None, use no fixed seed (truly random each run)
-        if base_seed is not None:
-            cfg.random_seed = base_seed + i
-        else:
-            cfg.random_seed = None
+        # Assign a deterministic seed for each replication: base_seed + i
+        cfg.random_seed = base_seed + i
 
         sim_config = create_simulation_config(cfg)
         sim = RideSharingSimulation(sim_config, matching)
@@ -373,6 +381,8 @@ def main():
         cfg.output_directory = args.output
     if args.verbose:
         cfg.verbose = True
+    if args.warmup is not None:
+        cfg.warmup_time = args.warmup
 
     # Create date-time-stamped output subdirectory under mode folder
     output_dir = get_output_dir_with_datetime(cfg.output_directory, cfg.mode)
@@ -384,6 +394,8 @@ def main():
         quiet=args.quiet,
         log_file=cfg.log_file
     )
+    if args.warmup is not None:
+        logger.info(f"Overriding warmup time: {cfg.warmup_time} hours")
 
     try:
         logger.section("BoxCar Ride-Sharing Simulation")

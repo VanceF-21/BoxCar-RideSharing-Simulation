@@ -1,0 +1,217 @@
+{
+  "scenario": "baseline",
+  "mode": "baseline",
+  "params": {
+    "simulation_time": 1000.0,
+    "warmup_time": 5.0,
+    "map_size": 20.0,
+    "driver_arrival_rate": 4.74,
+    "driver_availability_min": 6.0,
+    "driver_availability_max": 8.0,
+    "rider_arrival_rate": 34.56,
+    "rider_patience_rate": 5.0,
+    "avg_speed": 20.0,
+    "base_fare": 3.0,
+    "per_mile_rate": 2.0,
+    "petrol_cost_per_mile": 0.2,
+    "random_seed": 1,
+    "verbose": false
+  },
+  "data_comparison": null,
+  "analysis": {
+    "abandonment_rate": {
+      "metric": "abandonment_rate",
+      "n_replications": 1,
+      "mean": 0.04573954751654194,
+      "std": 0.0,
+      "ci_lower": 0.04573954751654194,
+      "ci_upper": 0.04573954751654194,
+      "std_error": 0,
+      "min": 0.04573954751654194,
+      "max": 0.04573954751654194,
+      "range": 0.0
+    },
+    "avg_waiting_time": {
+      "metric": "avg_waiting_time",
+      "n_replications": 1,
+      "mean": 0.26573626036271514,
+      "std": 0.0,
+      "ci_lower": 0.26573626036271514,
+      "ci_upper": 0.26573626036271514,
+      "std_error": 0,
+      "min": 0.26573626036271514,
+      "max": 0.26573626036271514,
+      "range": 0.0
+    },
+    "pickup_waiting_time_p90": {
+      "metric": "pickup_waiting_time_p90",
+      "n_replications": 1,
+      "mean": 0.5630644639624904,
+      "std": 0.0,
+      "ci_lower": 0.5630644639624904,
+      "ci_upper": 0.5630644639624904,
+      "std_error": 0,
+      "min": 0.5630644639624904,
+      "max": 0.5630644639624904,
+      "range": 0.0
+    },
+    "avg_hourly_earnings": {
+      "metric": "avg_hourly_earnings",
+      "n_replications": 1,
+      "mean": 22.754096739857207,
+      "std": 0.0,
+      "ci_lower": 22.754096739857207,
+      "ci_upper": 22.754096739857207,
+      "std_error": 0,
+      "min": 22.754096739857207,
+      "max": 22.754096739857207,
+      "range": 0.0
+    },
+    "avg_net_hourly_earnings": {
+      "metric": "avg_net_hourly_earnings",
+      "n_replications": 1,
+      "mean": 19.77333516419497,
+      "std": 0.0,
+      "ci_lower": 19.77333516419497,
+      "ci_upper": 19.77333516419497,
+      "std_error": 0,
+      "min": 19.77333516419497,
+      "max": 19.77333516419497,
+      "range": 0.0
+    },
+    "time_weighted_net_hourly_earnings": {
+      "metric": "time_weighted_net_hourly_earnings",
+      "n_replications": 1,
+      "mean": 19.824253664586163,
+      "std": 0.0,
+      "ci_lower": 19.824253664586163,
+      "ci_upper": 19.824253664586163,
+      "std_error": 0,
+      "min": 19.824253664586163,
+      "max": 19.824253664586163,
+      "range": 0.0
+    },
+    "fairness_ratio": {
+      "metric": "fairness_ratio",
+      "n_replications": 1,
+      "mean": 1.5989676863513707,
+      "std": 0.0,
+      "ci_lower": 1.5989676863513707,
+      "ci_upper": 1.5989676863513707,
+      "std_error": 0,
+      "min": 1.5989676863513707,
+      "max": 1.5989676863513707,
+      "range": 0.0
+    },
+    "avg_utilization": {
+      "metric": "avg_utilization",
+      "n_replications": 1,
+      "mean": 0.745468794832007,
+      "std": 0.0,
+      "ci_lower": 0.745468794832007,
+      "ci_upper": 0.745468794832007,
+      "std_error": 0,
+      "min": 0.745468794832007,
+      "max": 0.745468794832007,
+      "range": 0.0
+    },
+    "avg_rest_fraction": {
+      "metric": "avg_rest_fraction",
+      "n_replications": 1,
+      "mean": 0.2545312051679929,
+      "std": 0.0,
+      "ci_lower": 0.2545312051679929,
+      "ci_upper": 0.2545312051679929,
+      "std_error": 0,
+      "min": 0.2545312051679929,
+      "max": 0.2545312051679929,
+      "range": 0.0
+    },
+    "long_rest_prob_15min": {
+      "metric": "long_rest_prob_15min",
+      "n_replications": 1,
+      "mean": 0.889496948010945,
+      "std": 0.0,
+      "ci_lower": 0.889496948010945,
+      "ci_upper": 0.889496948010945,
+      "std_error": 0,
+      "min": 0.889496948010945,
+      "max": 0.889496948010945,
+      "range": 0.0
+    },
+    "long_rest_prob_30min": {
+      "metric": "long_rest_prob_30min",
+      "n_replications": 1,
+      "mean": 0.6748053041464954,
+      "std": 0.0,
+      "ci_lower": 0.6748053041464954,
+      "ci_upper": 0.6748053041464954,
+      "std_error": 0,
+      "min": 0.6748053041464954,
+      "max": 0.6748053041464954,
+      "range": 0.0
+    },
+    "total_revenue": {
+      "metric": "total_revenue",
+      "n_replications": 1,
+      "mean": 789303.4995176849,
+      "std": 0.0,
+      "ci_lower": 789303.4995176849,
+      "ci_upper": 789303.4995176849,
+      "std_error": 0,
+      "min": 789303.4995176849,
+      "max": 789303.4995176849,
+      "range": 0.0
+    }
+  },
+  "raw_stats": [
+    {
+      "rider_metrics": {
+        "total_riders": 34609,
+        "completed_rides": 33026,
+        "abandoned_rides": 1583,
+        "abandonment_rate": 0.04573954751654194,
+        "average_waiting_time": 0.26573626036271514,
+        "pickup_waiting_time_p90": 0.5630644639624904,
+        "waiting_time_stats": {
+          "mean": 0.2657362603627133,
+          "std": 0.20844937768587476,
+          "min": 0.0012782901220589338,
+          "max": 1.625885632874855,
+          "median": 0.2054184619607895,
+          "count": 33026
+        },
+        "average_trip_distance": 10.4497289940908
+      },
+      "driver_metrics": {
+        "total_drivers": 4751,
+        "average_hourly_earnings": 22.754096739857207,
+        "average_net_hourly_earnings": 19.77333516419497,
+        "time_weighted_net_hourly_earnings": 19.824253664586163,
+        "fairness_ratio": 1.5989676863513707,
+        "earnings_distribution": {
+          "mean": 22.754096739857207,
+          "std": 4.135735033916429,
+          "min": 0.0,
+          "max": 34.321961229632514,
+          "gini": 0.09950754799846573,
+          "cv": 0.18175782063333104
+        },
+        "average_utilization": 0.745468794832007,
+        "average_rest_fraction": 0.2545312051679929,
+        "long_rest_prob_15min": 0.889496948010945,
+        "long_rest_prob_30min": 0.6748053041464954,
+        "trips_per_driver": {
+          "mean": 6.962113239318039,
+          "std": 1.5713695790095046,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 789303.4995176849,
+        "rides_per_hour": 33026
+      }
+    }
+  ]
+}
