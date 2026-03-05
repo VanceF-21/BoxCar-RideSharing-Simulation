@@ -1,0 +1,2569 @@
+{
+  "scenario": "baseline",
+  "mode": "baseline",
+  "params": {
+    "simulation_time": 1000.0,
+    "warmup_time": 5.0,
+    "map_size": 20.0,
+    "driver_arrival_rate": 4.74,
+    "driver_availability_min": 6.0,
+    "driver_availability_max": 8.0,
+    "rider_arrival_rate": 34.56,
+    "rider_patience_rate": 5.0,
+    "avg_speed": 20.0,
+    "base_fare": 3.0,
+    "per_mile_rate": 2.0,
+    "petrol_cost_per_mile": 0.2,
+    "random_seed": 50,
+    "verbose": false
+  },
+  "data_comparison": null,
+  "analysis": {
+    "abandonment_rate": {
+      "metric": "abandonment_rate",
+      "n_replications": 50,
+      "mean": 0.04778167576231989,
+      "std": 0.005867728164308231,
+      "ci_lower": 0.04608468961888696,
+      "ci_upper": 0.04947866190575282,
+      "std_error": 0.0008298220750283285,
+      "min": 0.036013914466953144,
+      "max": 0.06363189971404638,
+      "range": 0.02761798524709324
+    },
+    "avg_waiting_time": {
+      "metric": "avg_waiting_time",
+      "n_replications": 50,
+      "mean": 0.2674220801428464,
+      "std": 0.00668909312001837,
+      "ci_lower": 0.2654875497728387,
+      "ci_upper": 0.2693566105128541,
+      "std_error": 0.0009459806210306541,
+      "min": 0.25624562209877577,
+      "max": 0.29111410822951445,
+      "range": 0.034868486130738674
+    },
+    "pickup_waiting_time_p90": {
+      "metric": "pickup_waiting_time_p90",
+      "n_replications": 50,
+      "mean": 0.5617554758482144,
+      "std": 0.01372427513159182,
+      "ci_lower": 0.5577863238911352,
+      "ci_upper": 0.5657246278052935,
+      "std_error": 0.0019409056024836946,
+      "min": 0.5364999055159103,
+      "max": 0.6029137684938632,
+      "range": 0.06641386297795293
+    },
+    "avg_hourly_earnings": {
+      "metric": "avg_hourly_earnings",
+      "n_replications": 50,
+      "mean": 22.49079477863402,
+      "std": 0.19441520123128206,
+      "ci_lower": 22.43456860500706,
+      "ci_upper": 22.54702095226098,
+      "std_error": 0.027494461431277352,
+      "min": 22.119840075191696,
+      "max": 23.304285847440056,
+      "range": 1.1844457722483597
+    },
+    "avg_net_hourly_earnings": {
+      "metric": "avg_net_hourly_earnings",
+      "n_replications": 50,
+      "mean": 19.536729308119238,
+      "std": 0.1503895888870352,
+      "ci_lower": 19.49323563538739,
+      "ci_upper": 19.580222980851087,
+      "std_error": 0.02126829962437593,
+      "min": 19.246815768776152,
+      "max": 20.159906438522587,
+      "range": 0.9130906697464347
+    },
+    "time_weighted_net_hourly_earnings": {
+      "metric": "time_weighted_net_hourly_earnings",
+      "n_replications": 50,
+      "mean": 19.593718543037664,
+      "std": 0.14805079558694959,
+      "ci_lower": 19.55090126493615,
+      "ci_upper": 19.636535821139177,
+      "std_error": 0.02093754430391909,
+      "min": 19.319464424717868,
+      "max": 20.192633916495513,
+      "range": 0.8731694917776451
+    },
+    "fairness_ratio": {
+      "metric": "fairness_ratio",
+      "n_replications": 50,
+      "mean": 1.618545338190592,
+      "std": 0.028533555743326708,
+      "ci_lower": 1.6102932434507866,
+      "ci_upper": 1.6267974329303976,
+      "std_error": 0.004035254151494134,
+      "min": 1.518449153728798,
+      "max": 1.6729913043513276,
+      "range": 0.15454215062252952
+    },
+    "avg_utilization": {
+      "metric": "avg_utilization",
+      "n_replications": 50,
+      "mean": 0.7384702345414621,
+      "std": 0.011466955854937467,
+      "ci_lower": 0.7351539143834236,
+      "ci_upper": 0.7417865546995006,
+      "std_error": 0.0016216724489186134,
+      "min": 0.7189393319879205,
+      "max": 0.7855345446826318,
+      "range": 0.06659521269471136
+    },
+    "avg_rest_fraction": {
+      "metric": "avg_rest_fraction",
+      "n_replications": 50,
+      "mean": 0.26152976545853773,
+      "std": 0.011466955854937792,
+      "ci_lower": 0.25821344530049906,
+      "ci_upper": 0.2648460856165764,
+      "std_error": 0.0016216724489186594,
+      "min": 0.21446545531736597,
+      "max": 0.2810606680120817,
+      "range": 0.06659521269471572
+    },
+    "long_rest_prob_15min": {
+      "metric": "long_rest_prob_15min",
+      "n_replications": 50,
+      "mean": 0.8824080215912293,
+      "std": 0.017230985111621255,
+      "ci_lower": 0.877424705705878,
+      "ci_upper": 0.8873913374765806,
+      "std_error": 0.002436829283790366,
+      "min": 0.828059305156008,
+      "max": 0.9126355296080066,
+      "range": 0.08457622445199864
+    },
+    "long_rest_prob_30min": {
+      "metric": "long_rest_prob_30min",
+      "n_replications": 50,
+      "mean": 0.6858641275748119,
+      "std": 0.025769330658784787,
+      "ci_lower": 0.6784114651765266,
+      "ci_upper": 0.6933167899730971,
+      "std_error": 0.0036443336910930253,
+      "min": 0.5906173932285904,
+      "max": 0.7358252834943301,
+      "range": 0.14520789026573966
+    },
+    "total_revenue": {
+      "metric": "total_revenue",
+      "n_replications": 50,
+      "mean": 779979.4607945494,
+      "std": 4956.895296792246,
+      "ci_lower": 778545.8935948501,
+      "ci_upper": 781413.0279942488,
+      "std_error": 701.0108555987001,
+      "min": 764308.8263471341,
+      "max": 789304.0497653976,
+      "range": 24995.223418263486
+    }
+  },
+  "raw_stats": [
+    {
+      "rider_metrics": {
+        "total_riders": 34313,
+        "completed_rides": 33041,
+        "abandoned_rides": 1272,
+        "abandonment_rate": 0.03707049806195902,
+        "average_waiting_time": 0.25818794702530745,
+        "pickup_waiting_time_p90": 0.5415590233487819,
+        "waiting_time_stats": {
+          "mean": 0.25818794702530745,
+          "std": 0.20261902577823673,
+          "min": 0.000255122656938056,
+          "max": 1.5590593719983588,
+          "median": 0.1995047936908918,
+          "count": 33041
+        },
+        "average_trip_distance": 10.412411247917989
+      },
+      "driver_metrics": {
+        "total_drivers": 4869,
+        "average_hourly_earnings": 22.119840075191696,
+        "average_net_hourly_earnings": 19.246815768776152,
+        "time_weighted_net_hourly_earnings": 19.319464424717868,
+        "fairness_ratio": 1.6729913043513276,
+        "earnings_distribution": {
+          "mean": 22.119840075191696,
+          "std": 4.422137052211271,
+          "min": 0.0,
+          "max": 35.580658106922584,
+          "gini": 0.10970883918331165,
+          "cv": 0.1999172253135265
+        },
+        "average_utilization": 0.7189393319879205,
+        "average_rest_fraction": 0.2810606680120817,
+        "long_rest_prob_15min": 0.9040870815362497,
+        "long_rest_prob_30min": 0.7237625795851305,
+        "trips_per_driver": {
+          "mean": 6.797699733004724,
+          "std": 1.638751700020807,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 787195.9600849117,
+        "rides_per_hour": 33041
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34652,
+        "completed_rides": 33142,
+        "abandoned_rides": 1510,
+        "abandonment_rate": 0.043576128361999304,
+        "average_waiting_time": 0.27203901731206037,
+        "pickup_waiting_time_p90": 0.5772731764297987,
+        "waiting_time_stats": {
+          "mean": 0.27203901731206037,
+          "std": 0.21025491269337152,
+          "min": 0.0003002824103077728,
+          "max": 1.459713636847539,
+          "median": 0.21143629075379522,
+          "count": 33142
+        },
+        "average_trip_distance": 10.404420333099447
+      },
+      "driver_metrics": {
+        "total_drivers": 4795,
+        "average_hourly_earnings": 22.51737504170921,
+        "average_net_hourly_earnings": 19.538852975323127,
+        "time_weighted_net_hourly_earnings": 19.601390827630876,
+        "fairness_ratio": 1.6198445821832317,
+        "earnings_distribution": {
+          "mean": 22.51737504170921,
+          "std": 4.1387789956972645,
+          "min": 0.0,
+          "max": 35.223699068769804,
+          "gini": 0.1010355973386663,
+          "cv": 0.18380379542601893
+        },
+        "average_utilization": 0.74504552211995,
+        "average_rest_fraction": 0.25495447788005116,
+        "long_rest_prob_15min": 0.8746611053180396,
+        "long_rest_prob_30min": 0.6665276329509906,
+        "trips_per_driver": {
+          "mean": 6.924921793534932,
+          "std": 1.6071381338797983,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 789072.5973591631,
+        "rides_per_hour": 33142
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34567,
+        "completed_rides": 32620,
+        "abandoned_rides": 1947,
+        "abandonment_rate": 0.05632539705499465,
+        "average_waiting_time": 0.274743261557962,
+        "pickup_waiting_time_p90": 0.5760928739816791,
+        "waiting_time_stats": {
+          "mean": 0.274743261557962,
+          "std": 0.20981928542722522,
+          "min": 0.0015842767618323705,
+          "max": 1.3886813903343658,
+          "median": 0.21511632026113148,
+          "count": 32620
+        },
+        "average_trip_distance": 10.397604680671508
+      },
+      "driver_metrics": {
+        "total_drivers": 4676,
+        "average_hourly_earnings": 22.68387718182438,
+        "average_net_hourly_earnings": 19.682677350904232,
+        "time_weighted_net_hourly_earnings": 19.745314650014738,
+        "fairness_ratio": 1.5964326276099639,
+        "earnings_distribution": {
+          "mean": 22.68387718182438,
+          "std": 4.153277436947768,
+          "min": 0.0,
+          "max": 34.981671512095865,
+          "gini": 0.10011283046411124,
+          "cv": 0.18309380727363536
+        },
+        "average_utilization": 0.7512427136205982,
+        "average_rest_fraction": 0.24875728637939984,
+        "long_rest_prob_15min": 0.861633875106929,
+        "long_rest_prob_30min": 0.6563301967493584,
+        "trips_per_driver": {
+          "mean": 6.989093242087254,
+          "std": 1.605196581113255,
+          "min": 0,
+          "max": 14
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 776199.7293670081,
+        "rides_per_hour": 32620
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34265,
+        "completed_rides": 32490,
+        "abandoned_rides": 1775,
+        "abandonment_rate": 0.05180213045381585,
+        "average_waiting_time": 0.2671894752720681,
+        "pickup_waiting_time_p90": 0.563309164972452,
+        "waiting_time_stats": {
+          "mean": 0.2671894752720681,
+          "std": 0.20834748717849355,
+          "min": 0.0016463932837496031,
+          "max": 1.5002705937562268,
+          "median": 0.20710630362725624,
+          "count": 32490
+        },
+        "average_trip_distance": 10.42392728362687
+      },
+      "driver_metrics": {
+        "total_drivers": 4740,
+        "average_hourly_earnings": 22.316854772790393,
+        "average_net_hourly_earnings": 19.385519222530686,
+        "time_weighted_net_hourly_earnings": 19.451763042163563,
+        "fairness_ratio": 1.6355181358742943,
+        "earnings_distribution": {
+          "mean": 22.316854772790393,
+          "std": 4.357821670096279,
+          "min": 0.0,
+          "max": 35.55170201772467,
+          "gini": 0.10656607486417258,
+          "cv": 0.1952704229365471
+        },
+        "average_utilization": 0.7328050503177461,
+        "average_rest_fraction": 0.2671949496822521,
+        "long_rest_prob_15min": 0.8892405063291139,
+        "long_rest_prob_30min": 0.6987341772151898,
+        "trips_per_driver": {
+          "mean": 6.866033755274262,
+          "std": 1.6435484043709654,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 774816.7948900744,
+        "rides_per_hour": 32490
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34547,
+        "completed_rides": 32906,
+        "abandoned_rides": 1641,
+        "abandonment_rate": 0.04750050655628564,
+        "average_waiting_time": 0.2662493335934912,
+        "pickup_waiting_time_p90": 0.5563276916162749,
+        "waiting_time_stats": {
+          "mean": 0.2662493335934912,
+          "std": 0.2042099745150942,
+          "min": 0.0014871851712996431,
+          "max": 1.3810479027584392,
+          "median": 0.2102688785771747,
+          "count": 32906
+        },
+        "average_trip_distance": 10.365798344104704
+      },
+      "driver_metrics": {
+        "total_drivers": 4755,
+        "average_hourly_earnings": 22.470691077675887,
+        "average_net_hourly_earnings": 19.516636547652006,
+        "time_weighted_net_hourly_earnings": 19.591230432014775,
+        "fairness_ratio": 1.6325787286760307,
+        "earnings_distribution": {
+          "mean": 22.470691077675887,
+          "std": 4.262600148691988,
+          "min": 0.0,
+          "max": 34.8446445803313,
+          "gini": 0.10407552121622965,
+          "cv": 0.18969599706378334
+        },
+        "average_utilization": 0.7385632063245584,
+        "average_rest_fraction": 0.26143679367544165,
+        "long_rest_prob_15min": 0.8893796004206099,
+        "long_rest_prob_30min": 0.6919032597266036,
+        "trips_per_driver": {
+          "mean": 6.9310199789695055,
+          "std": 1.6105184327115045,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780911.9206222162,
+        "rides_per_hour": 32906
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 33793,
+        "completed_rides": 32481,
+        "abandoned_rides": 1312,
+        "abandonment_rate": 0.03882460864676116,
+        "average_waiting_time": 0.2564913650542134,
+        "pickup_waiting_time_p90": 0.5380081581058676,
+        "waiting_time_stats": {
+          "mean": 0.2564913650542134,
+          "std": 0.19890256545259893,
+          "min": 0.0020384077066637474,
+          "max": 1.4314873614574708,
+          "median": 0.20093210222239577,
+          "count": 32481
+        },
+        "average_trip_distance": 10.413636396304264
+      },
+      "driver_metrics": {
+        "total_drivers": 4762,
+        "average_hourly_earnings": 22.19494386658701,
+        "average_net_hourly_earnings": 19.31388826262448,
+        "time_weighted_net_hourly_earnings": 19.3728915681025,
+        "fairness_ratio": 1.6494362710909865,
+        "earnings_distribution": {
+          "mean": 22.19494386658701,
+          "std": 4.278431860827271,
+          "min": 0.0,
+          "max": 33.55187106899635,
+          "gini": 0.10601600790134547,
+          "cv": 0.19276605908736547
+        },
+        "average_utilization": 0.7207821424993298,
+        "average_rest_fraction": 0.27921785750066974,
+        "long_rest_prob_15min": 0.9071818563628727,
+        "long_rest_prob_30min": 0.7358252834943301,
+        "trips_per_driver": {
+          "mean": 6.829903401931961,
+          "std": 1.5882430917042138,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 773933.6475767177,
+        "rides_per_hour": 32481
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34322,
+        "completed_rides": 32803,
+        "abandoned_rides": 1519,
+        "abandonment_rate": 0.04425732766155818,
+        "average_waiting_time": 0.2644742830653457,
+        "pickup_waiting_time_p90": 0.558501102813068,
+        "waiting_time_stats": {
+          "mean": 0.2644742830653457,
+          "std": 0.20675323691287967,
+          "min": 0.0009997767110405675,
+          "max": 1.4715348700589175,
+          "median": 0.20438745931494395,
+          "count": 32803
+        },
+        "average_trip_distance": 10.425481874922204
+      },
+      "driver_metrics": {
+        "total_drivers": 4770,
+        "average_hourly_earnings": 22.370482302083474,
+        "average_net_hourly_earnings": 19.438478924108725,
+        "time_weighted_net_hourly_earnings": 19.495495274706727,
+        "fairness_ratio": 1.621372780660766,
+        "earnings_distribution": {
+          "mean": 22.370482302083474,
+          "std": 4.2250954650572625,
+          "min": 0.0,
+          "max": 33.98952956380516,
+          "gini": 0.1038509683998119,
+          "cv": 0.18886921649712302
+        },
+        "average_utilization": 0.7326244333798527,
+        "average_rest_fraction": 0.2673755666201459,
+        "long_rest_prob_15min": 0.8985324947589098,
+        "long_rest_prob_30min": 0.7064989517819706,
+        "trips_per_driver": {
+          "mean": 6.890985324947589,
+          "std": 1.5884351679572803,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 782383.1638861442,
+        "rides_per_hour": 32803
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34483,
+        "completed_rides": 32353,
+        "abandoned_rides": 2130,
+        "abandonment_rate": 0.06176956761302671,
+        "average_waiting_time": 0.2750550891268279,
+        "pickup_waiting_time_p90": 0.5796053128976837,
+        "waiting_time_stats": {
+          "mean": 0.2750550891268279,
+          "std": 0.21127446903390565,
+          "min": 0.0006753521430482579,
+          "max": 1.6518937803627978,
+          "median": 0.21363611632432367,
+          "count": 32353
+        },
+        "average_trip_distance": 10.445637966816431
+      },
+      "driver_metrics": {
+        "total_drivers": 4671,
+        "average_hourly_earnings": 22.622239805553107,
+        "average_net_hourly_earnings": 19.633586662924266,
+        "time_weighted_net_hourly_earnings": 19.670469395184483,
+        "fairness_ratio": 1.6256057126767285,
+        "earnings_distribution": {
+          "mean": 22.622239805553107,
+          "std": 4.184837460332133,
+          "min": 0.0,
+          "max": 33.838408527244695,
+          "gini": 0.10232676459070356,
+          "cv": 0.18498775966935319
+        },
+        "average_utilization": 0.7465907747305541,
+        "average_rest_fraction": 0.2534092252694436,
+        "long_rest_prob_15min": 0.858488546349818,
+        "long_rest_prob_30min": 0.6589595375722543,
+        "trips_per_driver": {
+          "mean": 6.937914793406123,
+          "std": 1.5825257576149805,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 772954.4502808228,
+        "rides_per_hour": 32353
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34265,
+        "completed_rides": 32691,
+        "abandoned_rides": 1574,
+        "abandonment_rate": 0.045936086385524585,
+        "average_waiting_time": 0.25937725421751073,
+        "pickup_waiting_time_p90": 0.5446582914331088,
+        "waiting_time_stats": {
+          "mean": 0.25937725421751073,
+          "std": 0.20132047106062337,
+          "min": 0.0010157988021575193,
+          "max": 1.515072488051942,
+          "median": 0.20281756320434852,
+          "count": 32691
+        },
+        "average_trip_distance": 10.44751140220739
+      },
+      "driver_metrics": {
+        "total_drivers": 4748,
+        "average_hourly_earnings": 22.44763205319315,
+        "average_net_hourly_earnings": 19.529904071242324,
+        "time_weighted_net_hourly_earnings": 19.567666660830845,
+        "fairness_ratio": 1.6495582752967766,
+        "earnings_distribution": {
+          "mean": 22.44763205319315,
+          "std": 4.3716283671233676,
+          "min": 0.0,
+          "max": 34.54190297410399,
+          "gini": 0.10696947733548767,
+          "cv": 0.194747862793016
+        },
+        "average_utilization": 0.7284323266464195,
+        "average_rest_fraction": 0.27156767335357884,
+        "long_rest_prob_15min": 0.8927969671440606,
+        "long_rest_prob_30min": 0.6958719460825611,
+        "trips_per_driver": {
+          "mean": 6.893007582139848,
+          "std": 1.6255157856647868,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781152.1904991227,
+        "rides_per_hour": 32691
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34621,
+        "completed_rides": 32418,
+        "abandoned_rides": 2203,
+        "abandonment_rate": 0.06363189971404638,
+        "average_waiting_time": 0.29111410822951445,
+        "pickup_waiting_time_p90": 0.6029137684938632,
+        "waiting_time_stats": {
+          "mean": 0.29111410822951445,
+          "std": 0.2171938448910909,
+          "min": 0.00144657338921661,
+          "max": 1.4995643187420455,
+          "median": 0.23037789378736306,
+          "count": 32418
+        },
+        "average_trip_distance": 10.428563322507861
+      },
+      "driver_metrics": {
+        "total_drivers": 4519,
+        "average_hourly_earnings": 23.304285847440056,
+        "average_net_hourly_earnings": 20.159906438522587,
+        "time_weighted_net_hourly_earnings": 20.192633916495513,
+        "fairness_ratio": 1.518449153728798,
+        "earnings_distribution": {
+          "mean": 23.304285847440056,
+          "std": 3.658921831614936,
+          "min": 0.0,
+          "max": 34.39937517378947,
+          "gini": 0.0873520715326197,
+          "cv": 0.15700639168124791
+        },
+        "average_utilization": 0.7855345446826318,
+        "average_rest_fraction": 0.21446545531736597,
+        "long_rest_prob_15min": 0.828059305156008,
+        "long_rest_prob_30min": 0.5906173932285904,
+        "trips_per_driver": {
+          "mean": 7.186988271741535,
+          "std": 1.4767501767037066,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 773400.331578119,
+        "rides_per_hour": 32418
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34301,
+        "completed_rides": 32817,
+        "abandoned_rides": 1484,
+        "abandonment_rate": 0.043264044780035565,
+        "average_waiting_time": 0.264534536695271,
+        "pickup_waiting_time_p90": 0.5566294170088781,
+        "waiting_time_stats": {
+          "mean": 0.264534536695271,
+          "std": 0.2047994932812336,
+          "min": 0.0010889840225161151,
+          "max": 1.4646365623201518,
+          "median": 0.20600374698162227,
+          "count": 32817
+        },
+        "average_trip_distance": 10.39924832495324
+      },
+      "driver_metrics": {
+        "total_drivers": 4756,
+        "average_hourly_earnings": 22.46573395466661,
+        "average_net_hourly_earnings": 19.525817184941204,
+        "time_weighted_net_hourly_earnings": 19.55944935282801,
+        "fairness_ratio": 1.6052894740544381,
+        "earnings_distribution": {
+          "mean": 22.46573395466661,
+          "std": 4.093825997451945,
+          "min": 0.0,
+          "max": 34.1999338002797,
+          "gini": 0.10096422707721842,
+          "cv": 0.18222533951985886
+        },
+        "average_utilization": 0.7343932509821208,
+        "average_rest_fraction": 0.2656067490178777,
+        "long_rest_prob_15min": 0.8978132884777124,
+        "long_rest_prob_30min": 0.6978553406223718,
+        "trips_per_driver": {
+          "mean": 6.913372582001682,
+          "std": 1.5708866684461702,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780995.264559981,
+        "rides_per_hour": 32817
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34084,
+        "completed_rides": 32616,
+        "abandoned_rides": 1468,
+        "abandonment_rate": 0.04307006219927238,
+        "average_waiting_time": 0.26482233702223956,
+        "pickup_waiting_time_p90": 0.553772599242393,
+        "waiting_time_stats": {
+          "mean": 0.26482233702223956,
+          "std": 0.2038238901736084,
+          "min": 0.0002687667840746144,
+          "max": 1.4549407953164746,
+          "median": 0.20785075644786843,
+          "count": 32616
+        },
+        "average_trip_distance": 10.370561867110895
+      },
+      "driver_metrics": {
+        "total_drivers": 4707,
+        "average_hourly_earnings": 22.489118246969692,
+        "average_net_hourly_earnings": 19.53996627820898,
+        "time_weighted_net_hourly_earnings": 19.602422583094377,
+        "fairness_ratio": 1.5971331955366959,
+        "earnings_distribution": {
+          "mean": 22.489118246969692,
+          "std": 4.106147932074052,
+          "min": 0.0,
+          "max": 32.95422968943394,
+          "gini": 0.10022004936056006,
+          "cv": 0.1825837672683026
+        },
+        "average_utilization": 0.7373606164017429,
+        "average_rest_fraction": 0.26263938359825856,
+        "long_rest_prob_15min": 0.9018483110261313,
+        "long_rest_prob_30min": 0.7000212449543234,
+        "trips_per_driver": {
+          "mean": 6.943488421499894,
+          "std": 1.5608177654365278,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 774340.491715378,
+        "rides_per_hour": 32616
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34206,
+        "completed_rides": 32625,
+        "abandoned_rides": 1581,
+        "abandonment_rate": 0.0462199614102789,
+        "average_waiting_time": 0.26431702620165093,
+        "pickup_waiting_time_p90": 0.5541567616392058,
+        "waiting_time_stats": {
+          "mean": 0.26431702620165093,
+          "std": 0.2049068227130059,
+          "min": 0.0006641202181754124,
+          "max": 1.4455752640842547,
+          "median": 0.20555733504352247,
+          "count": 32625
+        },
+        "average_trip_distance": 10.454357823701429
+      },
+      "driver_metrics": {
+        "total_drivers": 4747,
+        "average_hourly_earnings": 22.42068015080471,
+        "average_net_hourly_earnings": 19.48280057278885,
+        "time_weighted_net_hourly_earnings": 19.53737377838232,
+        "fairness_ratio": 1.6208743025422208,
+        "earnings_distribution": {
+          "mean": 22.42068015080471,
+          "std": 4.218532165593015,
+          "min": 0.0,
+          "max": 33.90131983359427,
+          "gini": 0.10339003092558507,
+          "cv": 0.18815362144317488
+        },
+        "average_utilization": 0.7338909536767363,
+        "average_rest_fraction": 0.2661090463232642,
+        "long_rest_prob_15min": 0.8963555930061091,
+        "long_rest_prob_30min": 0.6979144722982936,
+        "trips_per_driver": {
+          "mean": 6.885611965451864,
+          "std": 1.5886743202747855,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780021.847996518,
+        "rides_per_hour": 32625
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34509,
+        "completed_rides": 32848,
+        "abandoned_rides": 1661,
+        "abandonment_rate": 0.04813237126546698,
+        "average_waiting_time": 0.2618588429505871,
+        "pickup_waiting_time_p90": 0.5494183280289917,
+        "waiting_time_stats": {
+          "mean": 0.2618588429505871,
+          "std": 0.2036484810163198,
+          "min": 0.0004940741545169658,
+          "max": 1.4314609062171257,
+          "median": 0.203843038850124,
+          "count": 32848
+        },
+        "average_trip_distance": 10.390047316465461
+      },
+      "driver_metrics": {
+        "total_drivers": 4769,
+        "average_hourly_earnings": 22.359592499048482,
+        "average_net_hourly_earnings": 19.442834584411255,
+        "time_weighted_net_hourly_earnings": 19.50252720198673,
+        "fairness_ratio": 1.6634415015798563,
+        "earnings_distribution": {
+          "mean": 22.359592499048482,
+          "std": 4.437726955212481,
+          "min": 0.0,
+          "max": 34.65513838601086,
+          "gini": 0.10878604404632064,
+          "cv": 0.19847083328559453
+        },
+        "average_utilization": 0.7290198181800582,
+        "average_rest_fraction": 0.2709801818199385,
+        "long_rest_prob_15min": 0.8869784021807506,
+        "long_rest_prob_30min": 0.6986789683371776,
+        "trips_per_driver": {
+          "mean": 6.898511218284756,
+          "std": 1.638348328107469,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781128.5485025187,
+        "rides_per_hour": 32848
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34475,
+        "completed_rides": 32830,
+        "abandoned_rides": 1645,
+        "abandonment_rate": 0.047715736040609136,
+        "average_waiting_time": 0.26309539814717314,
+        "pickup_waiting_time_p90": 0.5485926061444388,
+        "waiting_time_stats": {
+          "mean": 0.26309539814717314,
+          "std": 0.2034854888568143,
+          "min": 0.001254866597491855,
+          "max": 1.5222279752218242,
+          "median": 0.20612404850527355,
+          "count": 32830
+        },
+        "average_trip_distance": 10.425009065745906
+      },
+      "driver_metrics": {
+        "total_drivers": 4747,
+        "average_hourly_earnings": 22.55223917418997,
+        "average_net_hourly_earnings": 19.606431152903728,
+        "time_weighted_net_hourly_earnings": 19.646237517510972,
+        "fairness_ratio": 1.610802688408859,
+        "earnings_distribution": {
+          "mean": 22.55223917418997,
+          "std": 4.140113430472801,
+          "min": 0.0,
+          "max": 32.95777276961414,
+          "gini": 0.10083092288419815,
+          "cv": 0.18357881887005595
+        },
+        "average_utilization": 0.7360699150113565,
+        "average_rest_fraction": 0.2639300849886434,
+        "long_rest_prob_15min": 0.8997261428270487,
+        "long_rest_prob_30min": 0.7010743627554245,
+        "trips_per_driver": {
+          "mean": 6.927322519485991,
+          "std": 1.577298815856501,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 782996.0952568769,
+        "rides_per_hour": 32830
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34177,
+        "completed_rides": 32742,
+        "abandoned_rides": 1435,
+        "abandonment_rate": 0.041987301401527344,
+        "average_waiting_time": 0.2565391835276977,
+        "pickup_waiting_time_p90": 0.5364999055159103,
+        "waiting_time_stats": {
+          "mean": 0.2565391835276977,
+          "std": 0.20064358786332,
+          "min": 0.0003482348929537693,
+          "max": 1.4990795861151867,
+          "median": 0.19996333086328377,
+          "count": 32742
+        },
+        "average_trip_distance": 10.457999855844816
+      },
+      "driver_metrics": {
+        "total_drivers": 4807,
+        "average_hourly_earnings": 22.275955091144613,
+        "average_net_hourly_earnings": 19.391189663195952,
+        "time_weighted_net_hourly_earnings": 19.45572358529702,
+        "fairness_ratio": 1.6402515673054885,
+        "earnings_distribution": {
+          "mean": 22.275955091144613,
+          "std": 4.273456001250852,
+          "min": 0.0,
+          "max": 34.61176601138172,
+          "gini": 0.10487420778998557,
+          "cv": 0.1918416509534841
+        },
+        "average_utilization": 0.7210815824552261,
+        "average_rest_fraction": 0.27891841754477437,
+        "long_rest_prob_15min": 0.9107551487414187,
+        "long_rest_prob_30min": 0.7287289369669232,
+        "trips_per_driver": {
+          "mean": 6.825462866652798,
+          "std": 1.6132488791706805,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 783057.6625601386,
+        "rides_per_hour": 32742
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34295,
+        "completed_rides": 32565,
+        "abandoned_rides": 1730,
+        "abandonment_rate": 0.05044467123487389,
+        "average_waiting_time": 0.27261809955008565,
+        "pickup_waiting_time_p90": 0.5706884200164097,
+        "waiting_time_stats": {
+          "mean": 0.27261809955008565,
+          "std": 0.20994763692009327,
+          "min": 0.0019190357357388166,
+          "max": 1.6248335372052907,
+          "median": 0.21218620861426274,
+          "count": 32565
+        },
+        "average_trip_distance": 10.433209274134699
+      },
+      "driver_metrics": {
+        "total_drivers": 4696,
+        "average_hourly_earnings": 22.600104656313448,
+        "average_net_hourly_earnings": 19.61556924057409,
+        "time_weighted_net_hourly_earnings": 19.667710544635092,
+        "fairness_ratio": 1.6011173780752483,
+        "earnings_distribution": {
+          "mean": 22.600104656313448,
+          "std": 4.130788964713972,
+          "min": 0.0,
+          "max": 34.18315679285212,
+          "gini": 0.10060869951683471,
+          "cv": 0.18277742636736047
+        },
+        "average_utilization": 0.7460351728660909,
+        "average_rest_fraction": 0.2539648271339086,
+        "long_rest_prob_15min": 0.8679727427597955,
+        "long_rest_prob_30min": 0.6637563884156729,
+        "trips_per_driver": {
+          "mean": 6.944207836456559,
+          "std": 1.5739428493723218,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 777209.9200243903,
+        "rides_per_hour": 32565
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34234,
+        "completed_rides": 32814,
+        "abandoned_rides": 1420,
+        "abandonment_rate": 0.04147923117368698,
+        "average_waiting_time": 0.2611673035135393,
+        "pickup_waiting_time_p90": 0.5531598180808714,
+        "waiting_time_stats": {
+          "mean": 0.2611673035135393,
+          "std": 0.20376662961537803,
+          "min": 0.0003569331421431343,
+          "max": 1.6845194181651095,
+          "median": 0.2028688552127278,
+          "count": 32814
+        },
+        "average_trip_distance": 10.41797691776704
+      },
+      "driver_metrics": {
+        "total_drivers": 4770,
+        "average_hourly_earnings": 22.41374809803997,
+        "average_net_hourly_earnings": 19.485209651832402,
+        "time_weighted_net_hourly_earnings": 19.546243557877197,
+        "fairness_ratio": 1.6196718683199924,
+        "earnings_distribution": {
+          "mean": 22.41374809803997,
+          "std": 4.204691758716392,
+          "min": 0.0,
+          "max": 34.592700038448754,
+          "gini": 0.10283658216406932,
+          "cv": 0.1875943166812017
+        },
+        "average_utilization": 0.7312514702224151,
+        "average_rest_fraction": 0.26874852977758823,
+        "long_rest_prob_15min": 0.8914046121593291,
+        "long_rest_prob_30min": 0.7037735849056603,
+        "trips_per_driver": {
+          "mean": 6.892243186582809,
+          "std": 1.6032339564322373,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 782152.9891592156,
+        "rides_per_hour": 32814
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34571,
+        "completed_rides": 32706,
+        "abandoned_rides": 1865,
+        "abandonment_rate": 0.053946949755575485,
+        "average_waiting_time": 0.26804084908949743,
+        "pickup_waiting_time_p90": 0.5619437812167121,
+        "waiting_time_stats": {
+          "mean": 0.26804084908949743,
+          "std": 0.2065802595123847,
+          "min": 0.00037370604685804665,
+          "max": 1.4826188938853875,
+          "median": 0.20848840940107038,
+          "count": 32706
+        },
+        "average_trip_distance": 10.412241548507263
+      },
+      "driver_metrics": {
+        "total_drivers": 4715,
+        "average_hourly_earnings": 22.605487978858463,
+        "average_net_hourly_earnings": 19.639458240179575,
+        "time_weighted_net_hourly_earnings": 19.697008715483225,
+        "fairness_ratio": 1.6183819970660118,
+        "earnings_distribution": {
+          "mean": 22.605487978858463,
+          "std": 4.207366242955519,
+          "min": 0.0,
+          "max": 33.62321408127594,
+          "gini": 0.10248642198257252,
+          "cv": 0.18612145187444804
+        },
+        "average_utilization": 0.7416577454760928,
+        "average_rest_fraction": 0.2583422545239102,
+        "long_rest_prob_15min": 0.888865323435843,
+        "long_rest_prob_30min": 0.6878048780487804,
+        "trips_per_driver": {
+          "mean": 6.949946977730647,
+          "std": 1.5902798253632873,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 779203.544170957,
+        "rides_per_hour": 32706
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34395,
+        "completed_rides": 32879,
+        "abandoned_rides": 1516,
+        "abandonment_rate": 0.044076173862480014,
+        "average_waiting_time": 0.27149078168656604,
+        "pickup_waiting_time_p90": 0.5710812246637715,
+        "waiting_time_stats": {
+          "mean": 0.27149078168656604,
+          "std": 0.20807299976360102,
+          "min": 0.0007177337299708597,
+          "max": 1.406812794850346,
+          "median": 0.212275661353317,
+          "count": 32879
+        },
+        "average_trip_distance": 10.433992946247338
+      },
+      "driver_metrics": {
+        "total_drivers": 4730,
+        "average_hourly_earnings": 22.648581475351484,
+        "average_net_hourly_earnings": 19.658423289416362,
+        "time_weighted_net_hourly_earnings": 19.72639982761658,
+        "fairness_ratio": 1.5815598274947043,
+        "earnings_distribution": {
+          "mean": 22.648581475351484,
+          "std": 4.091238273346521,
+          "min": 0.0,
+          "max": 33.60611185117913,
+          "gini": 0.09889614843086658,
+          "cv": 0.18063993446119472
+        },
+        "average_utilization": 0.7475911483674188,
+        "average_rest_fraction": 0.2524088516325792,
+        "long_rest_prob_15min": 0.8824524312896406,
+        "long_rest_prob_30min": 0.6725158562367864,
+        "trips_per_driver": {
+          "mean": 6.95877378435518,
+          "std": 1.5875414054928283,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 784755.508159336,
+        "rides_per_hour": 32879
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34467,
+        "completed_rides": 32836,
+        "abandoned_rides": 1631,
+        "abandonment_rate": 0.04732062552586532,
+        "average_waiting_time": 0.2608065086442738,
+        "pickup_waiting_time_p90": 0.5474089602675463,
+        "waiting_time_stats": {
+          "mean": 0.2608065086442738,
+          "std": 0.20362387133944304,
+          "min": 0.0008788948687197262,
+          "max": 1.4874808035929732,
+          "median": 0.2028471072485445,
+          "count": 32836
+        },
+        "average_trip_distance": 10.402553459872145
+      },
+      "driver_metrics": {
+        "total_drivers": 4762,
+        "average_hourly_earnings": 22.38608766002536,
+        "average_net_hourly_earnings": 19.47142941471912,
+        "time_weighted_net_hourly_earnings": 19.510527807660974,
+        "fairness_ratio": 1.6103419367460905,
+        "earnings_distribution": {
+          "mean": 22.38608766002536,
+          "std": 4.133250522830696,
+          "min": 0.0,
+          "max": 33.494382164234736,
+          "gini": 0.10197881981133539,
+          "cv": 0.18463478681946757
+        },
+        "average_utilization": 0.7290297470240567,
+        "average_rest_fraction": 0.2709702529759437,
+        "long_rest_prob_15min": 0.8964720705585888,
+        "long_rest_prob_30min": 0.7133557328853423,
+        "trips_per_driver": {
+          "mean": 6.908021839563209,
+          "std": 1.5596573976931634,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781664.4908167277,
+        "rides_per_hour": 32836
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34382,
+        "completed_rides": 32741,
+        "abandoned_rides": 1641,
+        "abandonment_rate": 0.047728462567622594,
+        "average_waiting_time": 0.2721740550636908,
+        "pickup_waiting_time_p90": 0.5693903505958815,
+        "waiting_time_stats": {
+          "mean": 0.2721740550636908,
+          "std": 0.2094567414058858,
+          "min": 0.00153306119204899,
+          "max": 1.444211872538574,
+          "median": 0.21228543821257517,
+          "count": 32741
+        },
+        "average_trip_distance": 10.415989775465796
+      },
+      "driver_metrics": {
+        "total_drivers": 4689,
+        "average_hourly_earnings": 22.694412701767625,
+        "average_net_hourly_earnings": 19.69701619615151,
+        "time_weighted_net_hourly_earnings": 19.75485358445144,
+        "fairness_ratio": 1.5947585703364093,
+        "earnings_distribution": {
+          "mean": 22.694412701767625,
+          "std": 4.163558707565103,
+          "min": 0.0,
+          "max": 34.886147623673864,
+          "gini": 0.0998971204062693,
+          "cv": 0.18346183980521386
+        },
+        "average_utilization": 0.7498892170847515,
+        "average_rest_fraction": 0.2501107829152475,
+        "long_rest_prob_15min": 0.8703348261889529,
+        "long_rest_prob_30min": 0.6553636169759011,
+        "trips_per_driver": {
+          "mean": 6.9918959266368095,
+          "std": 1.5845874781951779,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780282.8424770487,
+        "rides_per_hour": 32741
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34399,
+        "completed_rides": 32888,
+        "abandoned_rides": 1511,
+        "abandonment_rate": 0.04392569551440449,
+        "average_waiting_time": 0.27218001223149935,
+        "pickup_waiting_time_p90": 0.5773496730586203,
+        "waiting_time_stats": {
+          "mean": 0.27218001223149935,
+          "std": 0.2125615045595476,
+          "min": 0.001011825349451101,
+          "max": 1.6366498249560664,
+          "median": 0.21056529689894887,
+          "count": 32888
+        },
+        "average_trip_distance": 10.39503816741622
+      },
+      "driver_metrics": {
+        "total_drivers": 4754,
+        "average_hourly_earnings": 22.446205946922078,
+        "average_net_hourly_earnings": 19.48156078968138,
+        "time_weighted_net_hourly_earnings": 19.549651099627894,
+        "fairness_ratio": 1.6235630926819147,
+        "earnings_distribution": {
+          "mean": 22.446205946922078,
+          "std": 4.2929718272401,
+          "min": 0.0,
+          "max": 34.85906829061515,
+          "gini": 0.10419487616878653,
+          "cv": 0.19125601170155757
+        },
+        "average_utilization": 0.7414751881448952,
+        "average_rest_fraction": 0.25852481185510817,
+        "long_rest_prob_15min": 0.8790492217080353,
+        "long_rest_prob_30min": 0.6665965502734539,
+        "trips_per_driver": {
+          "mean": 6.928270929743374,
+          "std": 1.5938288375111012,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 782408.030499971,
+        "rides_per_hour": 32888
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34399,
+        "completed_rides": 32430,
+        "abandoned_rides": 1969,
+        "abandonment_rate": 0.05724003604755952,
+        "average_waiting_time": 0.27937614119048765,
+        "pickup_waiting_time_p90": 0.5863786408542069,
+        "waiting_time_stats": {
+          "mean": 0.27937614119048765,
+          "std": 0.21508124605548806,
+          "min": 0.0003781961268032319,
+          "max": 1.5430647200875,
+          "median": 0.21785685021689005,
+          "count": 32430
+        },
+        "average_trip_distance": 10.438953372754794
+      },
+      "driver_metrics": {
+        "total_drivers": 4639,
+        "average_hourly_earnings": 22.75352666475872,
+        "average_net_hourly_earnings": 19.730689077734617,
+        "time_weighted_net_hourly_earnings": 19.79586549632561,
+        "fairness_ratio": 1.5929403155133575,
+        "earnings_distribution": {
+          "mean": 22.75352666475872,
+          "std": 4.1432502488898315,
+          "min": 0.0,
+          "max": 34.25697128838256,
+          "gini": 0.09986209216574782,
+          "cv": 0.1820926623786637
+        },
+        "average_utilization": 0.7557731859381468,
+        "average_rest_fraction": 0.2442268140618535,
+        "long_rest_prob_15min": 0.858159086009916,
+        "long_rest_prob_30min": 0.6520801896960552,
+        "trips_per_driver": {
+          "mean": 7.000862254796292,
+          "std": 1.610484921930029,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 774360.5157568798,
+        "rides_per_hour": 32430
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34303,
+        "completed_rides": 32649,
+        "abandoned_rides": 1654,
+        "abandonment_rate": 0.04821735708247092,
+        "average_waiting_time": 0.26380155995273386,
+        "pickup_waiting_time_p90": 0.5597432444683363,
+        "waiting_time_stats": {
+          "mean": 0.26380155995273386,
+          "std": 0.20648770854177018,
+          "min": 0.0013945379521089762,
+          "max": 1.6379602860856721,
+          "median": 0.20379681685861328,
+          "count": 32649
+        },
+        "average_trip_distance": 10.419821345689865
+      },
+      "driver_metrics": {
+        "total_drivers": 4746,
+        "average_hourly_earnings": 22.417507692237578,
+        "average_net_hourly_earnings": 19.487867135518318,
+        "time_weighted_net_hourly_earnings": 19.531639880652374,
+        "fairness_ratio": 1.6140753514765958,
+        "earnings_distribution": {
+          "mean": 22.417507692237578,
+          "std": 4.179968331562432,
+          "min": 0.0,
+          "max": 34.24643615870007,
+          "gini": 0.10289879068696028,
+          "cv": 0.18645999318692388
+        },
+        "average_utilization": 0.7323410383476404,
+        "average_rest_fraction": 0.2676589616523587,
+        "long_rest_prob_15min": 0.894858828487147,
+        "long_rest_prob_30min": 0.7039612305099031,
+        "trips_per_driver": {
+          "mean": 6.89464812473662,
+          "std": 1.5907261301784015,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 778340.4942308571,
+        "rides_per_hour": 32649
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34578,
+        "completed_rides": 33071,
+        "abandoned_rides": 1507,
+        "abandonment_rate": 0.04358262479032911,
+        "average_waiting_time": 0.2697590264572355,
+        "pickup_waiting_time_p90": 0.5616239276723718,
+        "waiting_time_stats": {
+          "mean": 0.2697590264572355,
+          "std": 0.20632133084802892,
+          "min": 0.0011773888156767498,
+          "max": 1.4861647721771192,
+          "median": 0.21208963702486017,
+          "count": 33071
+        },
+        "average_trip_distance": 10.433477212140517
+      },
+      "driver_metrics": {
+        "total_drivers": 4740,
+        "average_hourly_earnings": 22.694581158820547,
+        "average_net_hourly_earnings": 19.703602107324148,
+        "time_weighted_net_hourly_earnings": 19.780257079662253,
+        "fairness_ratio": 1.6092253578167928,
+        "earnings_distribution": {
+          "mean": 22.694581158820547,
+          "std": 4.204174736798944,
+          "min": 0.0,
+          "max": 32.91560616558064,
+          "gini": 0.1009791594817282,
+          "cv": 0.1852501576203329
+        },
+        "average_utilization": 0.7475057595667087,
+        "average_rest_fraction": 0.2524942404332893,
+        "long_rest_prob_15min": 0.8780590717299578,
+        "long_rest_prob_30min": 0.6668776371308017,
+        "trips_per_driver": {
+          "mean": 6.991139240506329,
+          "std": 1.6132120544153197,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 789304.0497653976,
+        "rides_per_hour": 33071
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34438,
+        "completed_rides": 32858,
+        "abandoned_rides": 1580,
+        "abandonment_rate": 0.04587955165805215,
+        "average_waiting_time": 0.2666677692409423,
+        "pickup_waiting_time_p90": 0.5633253288169158,
+        "waiting_time_stats": {
+          "mean": 0.2666677692409423,
+          "std": 0.20709298975835183,
+          "min": 0.0004830557987816064,
+          "max": 1.4119152100633983,
+          "median": 0.20717485396721713,
+          "count": 32858
+        },
+        "average_trip_distance": 10.436221714912186
+      },
+      "driver_metrics": {
+        "total_drivers": 4781,
+        "average_hourly_earnings": 22.394163596236446,
+        "average_net_hourly_earnings": 19.453226929270496,
+        "time_weighted_net_hourly_earnings": 19.52766257284444,
+        "fairness_ratio": 1.6588227986145063,
+        "earnings_distribution": {
+          "mean": 22.394163596236446,
+          "std": 4.363849354733532,
+          "min": 0.0,
+          "max": 33.98968282620523,
+          "gini": 0.10679826376727686,
+          "cv": 0.19486547626484782
+        },
+        "average_utilization": 0.7350865373496328,
+        "average_rest_fraction": 0.26491346265036736,
+        "long_rest_prob_15min": 0.8719933068395733,
+        "long_rest_prob_30min": 0.6770550094122568,
+        "trips_per_driver": {
+          "mean": 6.888307885379628,
+          "std": 1.646833169364935,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 784400.7462171688,
+        "rides_per_hour": 32858
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34488,
+        "completed_rides": 33099,
+        "abandoned_rides": 1389,
+        "abandonment_rate": 0.040274878218510786,
+        "average_waiting_time": 0.25624562209877577,
+        "pickup_waiting_time_p90": 0.5417753745800837,
+        "waiting_time_stats": {
+          "mean": 0.25624562209877577,
+          "std": 0.20199706439489898,
+          "min": 0.0004922513691951735,
+          "max": 1.6151255179213422,
+          "median": 0.19831256256520646,
+          "count": 33099
+        },
+        "average_trip_distance": 10.414875164995689
+      },
+      "driver_metrics": {
+        "total_drivers": 4851,
+        "average_hourly_earnings": 22.291921308610018,
+        "average_net_hourly_earnings": 19.397185505693365,
+        "time_weighted_net_hourly_earnings": 19.455458005420763,
+        "fairness_ratio": 1.6428211757260045,
+        "earnings_distribution": {
+          "mean": 22.291921308610018,
+          "std": 4.2699571170284125,
+          "min": 0.0,
+          "max": 33.46052221949604,
+          "gini": 0.10520791825884568,
+          "cv": 0.19154729006598398
+        },
+        "average_utilization": 0.7234983975191254,
+        "average_rest_fraction": 0.27650160248087324,
+        "long_rest_prob_15min": 0.8967223252937538,
+        "long_rest_prob_30min": 0.7140795712224284,
+        "trips_per_driver": {
+          "mean": 6.834054834054834,
+          "std": 1.617609122955207,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 788740.9061723817,
+        "rides_per_hour": 33099
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34492,
+        "completed_rides": 32794,
+        "abandoned_rides": 1698,
+        "abandonment_rate": 0.04922880667980981,
+        "average_waiting_time": 0.26700929650236854,
+        "pickup_waiting_time_p90": 0.5579240750464578,
+        "waiting_time_stats": {
+          "mean": 0.26700929650236854,
+          "std": 0.2056932605649773,
+          "min": 0.00035239178066603927,
+          "max": 1.630087660221477,
+          "median": 0.20989063644276484,
+          "count": 32794
+        },
+        "average_trip_distance": 10.409213296614636
+      },
+      "driver_metrics": {
+        "total_drivers": 4732,
+        "average_hourly_earnings": 22.532471384507804,
+        "average_net_hourly_earnings": 19.575470972539716,
+        "time_weighted_net_hourly_earnings": 19.614719152963374,
+        "fairness_ratio": 1.6231237888326568,
+        "earnings_distribution": {
+          "mean": 22.532471384507804,
+          "std": 4.275503018082418,
+          "min": 0.0,
+          "max": 34.466013248244856,
+          "gini": 0.10465343596564058,
+          "cv": 0.18974851649082927
+        },
+        "average_utilization": 0.7391734740049295,
+        "average_rest_fraction": 0.2608265259950711,
+        "long_rest_prob_15min": 0.8767962806424345,
+        "long_rest_prob_30min": 0.680050718512257,
+        "trips_per_driver": {
+          "mean": 6.946745562130178,
+          "std": 1.6049229448311342,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781101.4816983654,
+        "rides_per_hour": 32794
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34333,
+        "completed_rides": 32672,
+        "abandoned_rides": 1661,
+        "abandonment_rate": 0.04837911047680075,
+        "average_waiting_time": 0.26835127717060797,
+        "pickup_waiting_time_p90": 0.5657112468103378,
+        "waiting_time_stats": {
+          "mean": 0.26835127717060797,
+          "std": 0.20888476487597682,
+          "min": 0.0007912634874855939,
+          "max": 1.6934210251106379,
+          "median": 0.20897083424233642,
+          "count": 32672
+        },
+        "average_trip_distance": 10.442185569209851
+      },
+      "driver_metrics": {
+        "total_drivers": 4752,
+        "average_hourly_earnings": 22.418662261107155,
+        "average_net_hourly_earnings": 19.472749147206752,
+        "time_weighted_net_hourly_earnings": 19.51420489672384,
+        "fairness_ratio": 1.622838223811627,
+        "earnings_distribution": {
+          "mean": 22.418662261107155,
+          "std": 4.18274477358968,
+          "min": 0.0,
+          "max": 33.55779967985556,
+          "gini": 0.10277519923673673,
+          "cv": 0.18657423555758199
+        },
+        "average_utilization": 0.7364292890694738,
+        "average_rest_fraction": 0.26357071093052564,
+        "long_rest_prob_15min": 0.8783670033670034,
+        "long_rest_prob_30min": 0.6936026936026936,
+        "trips_per_driver": {
+          "mean": 6.886784511784512,
+          "std": 1.5971018883528998,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780350.1738344462,
+        "rides_per_hour": 32672
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34153,
+        "completed_rides": 32659,
+        "abandoned_rides": 1494,
+        "abandonment_rate": 0.04374432699909232,
+        "average_waiting_time": 0.26100875591273204,
+        "pickup_waiting_time_p90": 0.5492902328947409,
+        "waiting_time_stats": {
+          "mean": 0.26100875591273204,
+          "std": 0.2026685744225541,
+          "min": 0.0008069588671020256,
+          "max": 1.382000844249319,
+          "median": 0.20385937672494947,
+          "count": 32659
+        },
+        "average_trip_distance": 10.45621015143488
+      },
+      "driver_metrics": {
+        "total_drivers": 4783,
+        "average_hourly_earnings": 22.314154942152,
+        "average_net_hourly_earnings": 19.402069456019387,
+        "time_weighted_net_hourly_earnings": 19.465227336565924,
+        "fairness_ratio": 1.6458559693757004,
+        "earnings_distribution": {
+          "mean": 22.314154942152,
+          "std": 4.305485392698694,
+          "min": 0.0,
+          "max": 35.04150434626818,
+          "gini": 0.10584953076998582,
+          "cv": 0.19294861955832007
+        },
+        "average_utilization": 0.7279800305301625,
+        "average_rest_fraction": 0.2720199694698388,
+        "long_rest_prob_15min": 0.8854275559272423,
+        "long_rest_prob_30min": 0.6987246498013799,
+        "trips_per_driver": {
+          "mean": 6.841522057286222,
+          "std": 1.6283266159929395,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780955.7346714226,
+        "rides_per_hour": 32659
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34565,
+        "completed_rides": 32995,
+        "abandoned_rides": 1570,
+        "abandonment_rate": 0.04542166931867496,
+        "average_waiting_time": 0.2632872924065082,
+        "pickup_waiting_time_p90": 0.5530455657309403,
+        "waiting_time_stats": {
+          "mean": 0.2632872924065082,
+          "std": 0.20462262606947562,
+          "min": 0.0005680007154751365,
+          "max": 1.5656676288607514,
+          "median": 0.20525678276644044,
+          "count": 32995
+        },
+        "average_trip_distance": 10.420348744268294
+      },
+      "driver_metrics": {
+        "total_drivers": 4769,
+        "average_hourly_earnings": 22.5099032772134,
+        "average_net_hourly_earnings": 19.57135358537989,
+        "time_weighted_net_hourly_earnings": 19.628762509310445,
+        "fairness_ratio": 1.6072095667572037,
+        "earnings_distribution": {
+          "mean": 22.5099032772134,
+          "std": 4.174556045364524,
+          "min": 0.0,
+          "max": 33.638419378977716,
+          "gini": 0.10187205364247975,
+          "cv": 0.18545419737944382
+        },
+        "average_utilization": 0.7344930548167301,
+        "average_rest_fraction": 0.26550694518326956,
+        "long_rest_prob_15min": 0.8953659048018453,
+        "long_rest_prob_30min": 0.699517718599287,
+        "trips_per_driver": {
+          "mean": 6.929335290417279,
+          "std": 1.5909675055993626,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 786623.8136342634,
+        "rides_per_hour": 32995
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34488,
+        "completed_rides": 32944,
+        "abandoned_rides": 1544,
+        "abandonment_rate": 0.04476919508234748,
+        "average_waiting_time": 0.2596472840743552,
+        "pickup_waiting_time_p90": 0.5463257650823934,
+        "waiting_time_stats": {
+          "mean": 0.2596472840743552,
+          "std": 0.20210732727062838,
+          "min": 0.0006404435836202538,
+          "max": 1.446982645227422,
+          "median": 0.20241964077207797,
+          "count": 32944
+        },
+        "average_trip_distance": 10.387196417334057
+      },
+      "driver_metrics": {
+        "total_drivers": 4802,
+        "average_hourly_earnings": 22.27716705375502,
+        "average_net_hourly_earnings": 19.373818140668536,
+        "time_weighted_net_hourly_earnings": 19.436599311543834,
+        "fairness_ratio": 1.651220449568526,
+        "earnings_distribution": {
+          "mean": 22.27716705375502,
+          "std": 4.355303658508031,
+          "min": 0.0,
+          "max": 34.146385753864514,
+          "gini": 0.10723100543236219,
+          "cv": 0.19550527443631596
+        },
+        "average_utilization": 0.7260741231519076,
+        "average_rest_fraction": 0.2739258768480908,
+        "long_rest_prob_15min": 0.8994169096209913,
+        "long_rest_prob_30min": 0.7153269471053728,
+        "trips_per_driver": {
+          "mean": 6.873594335693461,
+          "std": 1.628327929328816,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 783223.5975453067,
+        "rides_per_hour": 32944
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34444,
+        "completed_rides": 32698,
+        "abandoned_rides": 1746,
+        "abandonment_rate": 0.05069097665776333,
+        "average_waiting_time": 0.2682264475185213,
+        "pickup_waiting_time_p90": 0.5633434361654963,
+        "waiting_time_stats": {
+          "mean": 0.2682264475185213,
+          "std": 0.20858729825435687,
+          "min": 0.0013575836899235583,
+          "max": 1.5295194571026514,
+          "median": 0.20888774226386886,
+          "count": 32698
+        },
+        "average_trip_distance": 10.411273453668949
+      },
+      "driver_metrics": {
+        "total_drivers": 4748,
+        "average_hourly_earnings": 22.4669223294143,
+        "average_net_hourly_earnings": 19.51565168372512,
+        "time_weighted_net_hourly_earnings": 19.56005075057774,
+        "fairness_ratio": 1.6194511521359842,
+        "earnings_distribution": {
+          "mean": 22.4669223294143,
+          "std": 4.237187222603476,
+          "min": 0.0,
+          "max": 35.42069513822247,
+          "gini": 0.10354935488857331,
+          "cv": 0.18859669163746723
+        },
+        "average_utilization": 0.7385224156093707,
+        "average_rest_fraction": 0.2614775843906282,
+        "long_rest_prob_15min": 0.8814237573715249,
+        "long_rest_prob_30min": 0.6807076663858467,
+        "trips_per_driver": {
+          "mean": 6.900379106992418,
+          "std": 1.611607492701732,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 778949.6387761374,
+        "rides_per_hour": 32698
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34404,
+        "completed_rides": 32751,
+        "abandoned_rides": 1653,
+        "abandonment_rate": 0.04804673875130799,
+        "average_waiting_time": 0.2689634306453052,
+        "pickup_waiting_time_p90": 0.5628868773134172,
+        "waiting_time_stats": {
+          "mean": 0.2689634306453052,
+          "std": 0.20606072902653383,
+          "min": 0.00038327870703369626,
+          "max": 1.5911906773649207,
+          "median": 0.2104239307285809,
+          "count": 32751
+        },
+        "average_trip_distance": 10.417974289888566
+      },
+      "driver_metrics": {
+        "total_drivers": 4702,
+        "average_hourly_earnings": 22.702576611151855,
+        "average_net_hourly_earnings": 19.713487181764844,
+        "time_weighted_net_hourly_earnings": 19.778561348240085,
+        "fairness_ratio": 1.5779920608068887,
+        "earnings_distribution": {
+          "mean": 22.702576611151855,
+          "std": 4.071777190450862,
+          "min": 0.0,
+          "max": 33.1237843994422,
+          "gini": 0.09826920118606841,
+          "cv": 0.17935308666465385
+        },
+        "average_utilization": 0.7471499361184901,
+        "average_rest_fraction": 0.2528500638815086,
+        "long_rest_prob_15min": 0.8847299021692897,
+        "long_rest_prob_30min": 0.6865163760102084,
+        "trips_per_driver": {
+          "mean": 6.9821352615908125,
+          "std": 1.5828528322201336,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780651.1519362831,
+        "rides_per_hour": 32751
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34194,
+        "completed_rides": 32156,
+        "abandoned_rides": 2038,
+        "abandonment_rate": 0.05960109960811839,
+        "average_waiting_time": 0.28068908507537993,
+        "pickup_waiting_time_p90": 0.5913146937801912,
+        "waiting_time_stats": {
+          "mean": 0.28068908507537993,
+          "std": 0.21335199828032533,
+          "min": 0.0006094458782683887,
+          "max": 1.5788269803477988,
+          "median": 0.21974225600588682,
+          "count": 32156
+        },
+        "average_trip_distance": 10.38438901522471
+      },
+      "driver_metrics": {
+        "total_drivers": 4581,
+        "average_hourly_earnings": 22.752984911514563,
+        "average_net_hourly_earnings": 19.720452991393604,
+        "time_weighted_net_hourly_earnings": 19.78454527068284,
+        "fairness_ratio": 1.5794495962706692,
+        "earnings_distribution": {
+          "mean": 22.752984911514563,
+          "std": 4.106544438302888,
+          "min": 0.0,
+          "max": 33.642165245648506,
+          "gini": 0.09858597732897345,
+          "cv": 0.18048376748251155
+        },
+        "average_utilization": 0.7571231696697054,
+        "average_rest_fraction": 0.24287683033029447,
+        "long_rest_prob_15min": 0.8445754202139271,
+        "long_rest_prob_30min": 0.6489849377865095,
+        "trips_per_driver": {
+          "mean": 7.032089063523248,
+          "std": 1.5892486206605811,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 764308.8263471341,
+        "rides_per_hour": 32156
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34405,
+        "completed_rides": 32623,
+        "abandoned_rides": 1782,
+        "abandonment_rate": 0.05179479726783898,
+        "average_waiting_time": 0.2669761752653431,
+        "pickup_waiting_time_p90": 0.5631348015534225,
+        "waiting_time_stats": {
+          "mean": 0.2669761752653431,
+          "std": 0.20808179373233654,
+          "min": 0.0010414508402618594,
+          "max": 1.3807724911004584,
+          "median": 0.20672702367568263,
+          "count": 32623
+        },
+        "average_trip_distance": 10.395061947098617
+      },
+      "driver_metrics": {
+        "total_drivers": 4771,
+        "average_hourly_earnings": 22.241338538171874,
+        "average_net_hourly_earnings": 19.32001324064546,
+        "time_weighted_net_hourly_earnings": 19.39567802760554,
+        "fairness_ratio": 1.67279142454066,
+        "earnings_distribution": {
+          "mean": 22.241338538171874,
+          "std": 4.382612672893951,
+          "min": 0.0,
+          "max": 32.65171438946293,
+          "gini": 0.1086558366013981,
+          "cv": 0.19704806279407408
+        },
+        "average_utilization": 0.730411046759717,
+        "average_rest_fraction": 0.26958895324028365,
+        "long_rest_prob_15min": 0.8675330119471809,
+        "long_rest_prob_30min": 0.6876964996856005,
+        "trips_per_driver": {
+          "mean": 6.852232236428422,
+          "std": 1.646806944956058,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 776105.2118004004,
+        "rides_per_hour": 32623
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34376,
+        "completed_rides": 32731,
+        "abandoned_rides": 1645,
+        "abandonment_rate": 0.04785315336281126,
+        "average_waiting_time": 0.26727576556154653,
+        "pickup_waiting_time_p90": 0.560095979401126,
+        "waiting_time_stats": {
+          "mean": 0.26727576556154653,
+          "std": 0.20617831090429137,
+          "min": 0.0011169505058887808,
+          "max": 1.4881704419976387,
+          "median": 0.20862610256961034,
+          "count": 32731
+        },
+        "average_trip_distance": 10.429225847650534
+      },
+      "driver_metrics": {
+        "total_drivers": 4739,
+        "average_hourly_earnings": 22.510397279570807,
+        "average_net_hourly_earnings": 19.551801327826976,
+        "time_weighted_net_hourly_earnings": 19.617298456276945,
+        "fairness_ratio": 1.6148412641689365,
+        "earnings_distribution": {
+          "mean": 22.510397279570807,
+          "std": 4.323648846281023,
+          "min": 0.0,
+          "max": 35.764960538765926,
+          "gini": 0.10454116122642398,
+          "cv": 0.192073413568979
+        },
+        "average_utilization": 0.738514700796689,
+        "average_rest_fraction": 0.2614852992033115,
+        "long_rest_prob_15min": 0.8809875501160582,
+        "long_rest_prob_30min": 0.6792572272631356,
+        "trips_per_driver": {
+          "mean": 6.912428782443554,
+          "std": 1.6238787060801005,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780910.9824388995,
+        "rides_per_hour": 32731
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34361,
+        "completed_rides": 32838,
+        "abandoned_rides": 1523,
+        "abandonment_rate": 0.04432350630074794,
+        "average_waiting_time": 0.2653773312768274,
+        "pickup_waiting_time_p90": 0.5523523304332798,
+        "waiting_time_stats": {
+          "mean": 0.2653773312768274,
+          "std": 0.20425808922976252,
+          "min": 0.00024421328129164976,
+          "max": 1.4975534472347363,
+          "median": 0.2076899350391841,
+          "count": 32838
+        },
+        "average_trip_distance": 10.405997321002266
+      },
+      "driver_metrics": {
+        "total_drivers": 4752,
+        "average_hourly_earnings": 22.454841155418343,
+        "average_net_hourly_earnings": 19.510287513247658,
+        "time_weighted_net_hourly_earnings": 19.56890174118181,
+        "fairness_ratio": 1.6092471297278597,
+        "earnings_distribution": {
+          "mean": 22.454841155418343,
+          "std": 4.160655801023812,
+          "min": 0.0,
+          "max": 35.41466004280741,
+          "gini": 0.10194445433368426,
+          "cv": 0.18528992355039872
+        },
+        "average_utilization": 0.7369038272350495,
+        "average_rest_fraction": 0.2630961727649483,
+        "long_rest_prob_15min": 0.8992003367003367,
+        "long_rest_prob_30min": 0.6942340067340067,
+        "trips_per_driver": {
+          "mean": 6.922138047138047,
+          "std": 1.5994784949134402,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781938.2800541468,
+        "rides_per_hour": 32838
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34418,
+        "completed_rides": 32752,
+        "abandoned_rides": 1666,
+        "abandonment_rate": 0.04840490441048289,
+        "average_waiting_time": 0.2695408469219212,
+        "pickup_waiting_time_p90": 0.5654442930106143,
+        "waiting_time_stats": {
+          "mean": 0.2695408469219212,
+          "std": 0.2071934086287838,
+          "min": 0.000477458682780707,
+          "max": 1.4547943600321105,
+          "median": 0.21060120878661337,
+          "count": 32752
+        },
+        "average_trip_distance": 10.392217955275875
+      },
+      "driver_metrics": {
+        "total_drivers": 4717,
+        "average_hourly_earnings": 22.57519810400412,
+        "average_net_hourly_earnings": 19.605333059165556,
+        "time_weighted_net_hourly_earnings": 19.669700009927002,
+        "fairness_ratio": 1.6058301023584534,
+        "earnings_distribution": {
+          "mean": 22.57519810400412,
+          "std": 4.3817795337702306,
+          "min": 0.0,
+          "max": 34.278962762156176,
+          "gini": 0.10480236620937755,
+          "cv": 0.19409705791210943
+        },
+        "average_utilization": 0.7428779085618594,
+        "average_rest_fraction": 0.2571220914381399,
+        "long_rest_prob_15min": 0.8706805172779309,
+        "long_rest_prob_30min": 0.655501377994488,
+        "trips_per_driver": {
+          "mean": 6.955904176383294,
+          "std": 1.6512070265788383,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 778987.8449423909,
+        "rides_per_hour": 32752
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34548,
+        "completed_rides": 32999,
+        "abandoned_rides": 1549,
+        "abandonment_rate": 0.04483616996642353,
+        "average_waiting_time": 0.26273371048579325,
+        "pickup_waiting_time_p90": 0.5508998799066376,
+        "waiting_time_stats": {
+          "mean": 0.26273371048579325,
+          "std": 0.20412056454256272,
+          "min": 0.001053667985274842,
+          "max": 1.4627225400624866,
+          "median": 0.20506147094374683,
+          "count": 32999
+        },
+        "average_trip_distance": 10.397967341724955
+      },
+      "driver_metrics": {
+        "total_drivers": 4806,
+        "average_hourly_earnings": 22.33080338220954,
+        "average_net_hourly_earnings": 19.412622314642327,
+        "time_weighted_net_hourly_earnings": 19.4525376637029,
+        "fairness_ratio": 1.6468740449686685,
+        "earnings_distribution": {
+          "mean": 22.33080338220954,
+          "std": 4.270035522282367,
+          "min": 0.0,
+          "max": 34.256532971302015,
+          "gini": 0.10505503015798645,
+          "cv": 0.19121728176086175
+        },
+        "average_utilization": 0.7293367728683731,
+        "average_rest_fraction": 0.27066322713162366,
+        "long_rest_prob_15min": 0.8882646691635455,
+        "long_rest_prob_30min": 0.704119850187266,
+        "trips_per_driver": {
+          "mean": 6.88160632542655,
+          "std": 1.5940245523991408,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 785242.0486191628,
+        "rides_per_hour": 32999
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34082,
+        "completed_rides": 32521,
+        "abandoned_rides": 1561,
+        "abandonment_rate": 0.0458013027404495,
+        "average_waiting_time": 0.27128222744711405,
+        "pickup_waiting_time_p90": 0.5714789113687715,
+        "waiting_time_stats": {
+          "mean": 0.27128222744711405,
+          "std": 0.20982760859930438,
+          "min": 0.0005669326553174869,
+          "max": 1.541095799308323,
+          "median": 0.21115126913360882,
+          "count": 32521
+        },
+        "average_trip_distance": 10.397359553714375
+      },
+      "driver_metrics": {
+        "total_drivers": 4697,
+        "average_hourly_earnings": 22.476685042661185,
+        "average_net_hourly_earnings": 19.509450503990408,
+        "time_weighted_net_hourly_earnings": 19.566365539356596,
+        "fairness_ratio": 1.5899112114847453,
+        "earnings_distribution": {
+          "mean": 22.476685042661185,
+          "std": 4.153020052835514,
+          "min": 0.0,
+          "max": 33.63728752709756,
+          "gini": 0.10081601693487574,
+          "cv": 0.18477013158092492
+        },
+        "average_utilization": 0.741365406697715,
+        "average_rest_fraction": 0.25863459330228283,
+        "long_rest_prob_15min": 0.8803491590376836,
+        "long_rest_prob_30min": 0.6880987864594422,
+        "trips_per_driver": {
+          "mean": 6.931019799872259,
+          "std": 1.603411469481194,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 773828.0600926934,
+        "rides_per_hour": 32521
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34209,
+        "completed_rides": 32977,
+        "abandoned_rides": 1232,
+        "abandonment_rate": 0.036013914466953144,
+        "average_waiting_time": 0.25996980435866146,
+        "pickup_waiting_time_p90": 0.5459802705097232,
+        "waiting_time_stats": {
+          "mean": 0.25996980435866146,
+          "std": 0.20053928092508747,
+          "min": 0.0010705923438649734,
+          "max": 1.4282067718933718,
+          "median": 0.20528397754537764,
+          "count": 32977
+        },
+        "average_trip_distance": 10.424443684532093
+      },
+      "driver_metrics": {
+        "total_drivers": 4796,
+        "average_hourly_earnings": 22.352615442282556,
+        "average_net_hourly_earnings": 19.439045084372125,
+        "time_weighted_net_hourly_earnings": 19.504237082767496,
+        "fairness_ratio": 1.627282506386748,
+        "earnings_distribution": {
+          "mean": 22.352615442282556,
+          "std": 4.226759867058581,
+          "min": 0.0,
+          "max": 33.718952137689,
+          "gini": 0.10393051633172212,
+          "cv": 0.18909464433692963
+        },
+        "average_utilization": 0.7283258777546768,
+        "average_rest_fraction": 0.27167412224532705,
+        "long_rest_prob_15min": 0.9126355296080066,
+        "long_rest_prob_30min": 0.7243536280233528,
+        "trips_per_driver": {
+          "mean": 6.885529608006673,
+          "std": 1.5744093346002725,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 786464.7587696284,
+        "rides_per_hour": 32977
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34441,
+        "completed_rides": 32798,
+        "abandoned_rides": 1643,
+        "abandonment_rate": 0.04770477047704771,
+        "average_waiting_time": 0.2726548352224903,
+        "pickup_waiting_time_p90": 0.5671545785481911,
+        "waiting_time_stats": {
+          "mean": 0.2726548352224903,
+          "std": 0.2078692710876864,
+          "min": 0.0002350862918092389,
+          "max": 1.5409633030504892,
+          "median": 0.21436510078481774,
+          "count": 32798
+        },
+        "average_trip_distance": 10.396786308864149
+      },
+      "driver_metrics": {
+        "total_drivers": 4678,
+        "average_hourly_earnings": 22.79931278817092,
+        "average_net_hourly_earnings": 19.78390897156849,
+        "time_weighted_net_hourly_earnings": 19.84083093069372,
+        "fairness_ratio": 1.5729815162755776,
+        "earnings_distribution": {
+          "mean": 22.79931278817092,
+          "std": 3.98970847540293,
+          "min": 0.0,
+          "max": 33.5121779477142,
+          "gini": 0.09624183536605146,
+          "cv": 0.17499248825924835
+        },
+        "average_utilization": 0.7545153880887155,
+        "average_rest_fraction": 0.2454846119112845,
+        "long_rest_prob_15min": 0.8749465583582727,
+        "long_rest_prob_30min": 0.6564771269773407,
+        "trips_per_driver": {
+          "mean": 7.025438221462164,
+          "std": 1.5547561015142666,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780381.5947162563,
+        "rides_per_hour": 32798
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34370,
+        "completed_rides": 32593,
+        "abandoned_rides": 1777,
+        "abandonment_rate": 0.051702065755018914,
+        "average_waiting_time": 0.2726226224857895,
+        "pickup_waiting_time_p90": 0.5722374930984415,
+        "waiting_time_stats": {
+          "mean": 0.2726226224857895,
+          "std": 0.21026738458814076,
+          "min": 0.0012218488327562227,
+          "max": 1.5770125644291966,
+          "median": 0.21172564394510118,
+          "count": 32593
+        },
+        "average_trip_distance": 10.401764147152422
+      },
+      "driver_metrics": {
+        "total_drivers": 4720,
+        "average_hourly_earnings": 22.49334005009354,
+        "average_net_hourly_earnings": 19.523681958839653,
+        "time_weighted_net_hourly_earnings": 19.56693375702503,
+        "fairness_ratio": 1.6143746992304762,
+        "earnings_distribution": {
+          "mean": 22.49334005009354,
+          "std": 4.233045486017971,
+          "min": 0.0,
+          "max": 33.304966330915136,
+          "gini": 0.10377565319541349,
+          "cv": 0.18819105906863165
+        },
+        "average_utilization": 0.7419365649976606,
+        "average_rest_fraction": 0.25806343500234075,
+        "long_rest_prob_15min": 0.8519067796610169,
+        "long_rest_prob_30min": 0.6591101694915255,
+        "trips_per_driver": {
+          "mean": 6.922457627118644,
+          "std": 1.6109805606675105,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 775828.397696277,
+        "rides_per_hour": 32593
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34289,
+        "completed_rides": 32333,
+        "abandoned_rides": 1956,
+        "abandonment_rate": 0.05704453323223191,
+        "average_waiting_time": 0.2766381749178388,
+        "pickup_waiting_time_p90": 0.5758811154405805,
+        "waiting_time_stats": {
+          "mean": 0.2766381749178388,
+          "std": 0.2098663762479041,
+          "min": 0.0007497154983866494,
+          "max": 1.491775618950669,
+          "median": 0.21670151022624395,
+          "count": 32333
+        },
+        "average_trip_distance": 10.405551913594701
+      },
+      "driver_metrics": {
+        "total_drivers": 4638,
+        "average_hourly_earnings": 22.66316937047538,
+        "average_net_hourly_earnings": 19.65479478917743,
+        "time_weighted_net_hourly_earnings": 19.72620509107208,
+        "fairness_ratio": 1.5893560048657847,
+        "earnings_distribution": {
+          "mean": 22.66316937047538,
+          "std": 4.148510518566948,
+          "min": 0.0,
+          "max": 36.791711048751914,
+          "gini": 0.09970260289044508,
+          "cv": 0.18305076623446379
+        },
+        "average_utilization": 0.7516644559376683,
+        "average_rest_fraction": 0.2483355440623319,
+        "long_rest_prob_15min": 0.8678309616213885,
+        "long_rest_prob_30min": 0.6576110392410521,
+        "trips_per_driver": {
+          "mean": 6.988141440275981,
+          "std": 1.5956189872261646,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 769884.4200445098,
+        "rides_per_hour": 32333
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34413,
+        "completed_rides": 32614,
+        "abandoned_rides": 1799,
+        "abandonment_rate": 0.05227675587713945,
+        "average_waiting_time": 0.2705597095232118,
+        "pickup_waiting_time_p90": 0.5759125812950288,
+        "waiting_time_stats": {
+          "mean": 0.2705597095232118,
+          "std": 0.21053202811409943,
+          "min": 0.0010756942516536583,
+          "max": 1.4822812417145315,
+          "median": 0.20924273259640813,
+          "count": 32614
+        },
+        "average_trip_distance": 10.441433498041816
+      },
+      "driver_metrics": {
+        "total_drivers": 4713,
+        "average_hourly_earnings": 22.594952554111245,
+        "average_net_hourly_earnings": 19.620762158465737,
+        "time_weighted_net_hourly_earnings": 19.675362927354897,
+        "fairness_ratio": 1.6046167620961618,
+        "earnings_distribution": {
+          "mean": 22.594952554111245,
+          "std": 4.136288084580538,
+          "min": 0.0,
+          "max": 34.40982450773969,
+          "gini": 0.10095929704943063,
+          "cv": 0.18306248152877502
+        },
+        "average_utilization": 0.744112360113516,
+        "average_rest_fraction": 0.2558876398864825,
+        "long_rest_prob_15min": 0.8650541056651814,
+        "long_rest_prob_30min": 0.6776999787820921,
+        "trips_per_driver": {
+          "mean": 6.932951410990876,
+          "std": 1.5873206393777632,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 778915.8242102696,
+        "rides_per_hour": 32614
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34361,
+        "completed_rides": 32698,
+        "abandoned_rides": 1663,
+        "abandonment_rate": 0.048397892960041905,
+        "average_waiting_time": 0.26736443563063483,
+        "pickup_waiting_time_p90": 0.5665532775730071,
+        "waiting_time_stats": {
+          "mean": 0.26736443563063483,
+          "std": 0.20811109254453034,
+          "min": 0.0006882582613911836,
+          "max": 1.4135695528296424,
+          "median": 0.20671716054005174,
+          "count": 32698
+        },
+        "average_trip_distance": 10.44714420758002
+      },
+      "driver_metrics": {
+        "total_drivers": 4762,
+        "average_hourly_earnings": 22.430566437764565,
+        "average_net_hourly_earnings": 19.4857749063733,
+        "time_weighted_net_hourly_earnings": 19.523004170549196,
+        "fairness_ratio": 1.6357757509806907,
+        "earnings_distribution": {
+          "mean": 22.430566437764565,
+          "std": 4.199672958775787,
+          "min": 0.0,
+          "max": 34.145389584512955,
+          "gini": 0.10362440308207388,
+          "cv": 0.18722991104251077
+        },
+        "average_utilization": 0.7364161740564981,
+        "average_rest_fraction": 0.26358382594349994,
+        "long_rest_prob_15min": 0.8840823183536329,
+        "long_rest_prob_30min": 0.6879462410751785,
+        "trips_per_driver": {
+          "mean": 6.883452330953381,
+          "std": 1.591287442688498,
+          "min": 0,
+          "max": 13
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 781295.442598902,
+        "rides_per_hour": 32698
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34457,
+        "completed_rides": 32557,
+        "abandoned_rides": 1900,
+        "abandonment_rate": 0.05514119046928055,
+        "average_waiting_time": 0.27107290004746426,
+        "pickup_waiting_time_p90": 0.5705970014894319,
+        "waiting_time_stats": {
+          "mean": 0.27107290004746426,
+          "std": 0.20861968909921405,
+          "min": 8.370461790718764e-05,
+          "max": 1.4669212876521271,
+          "median": 0.2112407544478856,
+          "count": 32557
+        },
+        "average_trip_distance": 10.40744182875213
+      },
+      "driver_metrics": {
+        "total_drivers": 4714,
+        "average_hourly_earnings": 22.43436837566952,
+        "average_net_hourly_earnings": 19.480285282990927,
+        "time_weighted_net_hourly_earnings": 19.527092265052943,
+        "fairness_ratio": 1.627271089597034,
+        "earnings_distribution": {
+          "mean": 22.43436837566952,
+          "std": 4.190911251277511,
+          "min": 0.0,
+          "max": 34.389443500842575,
+          "gini": 0.10310124823728439,
+          "cv": 0.18680763287379332
+        },
+        "average_utilization": 0.7384041985073176,
+        "average_rest_fraction": 0.26159580149268474,
+        "long_rest_prob_15min": 0.8682647433177768,
+        "long_rest_prob_30min": 0.6864658464149342,
+        "trips_per_driver": {
+          "mean": 6.923843869325414,
+          "std": 1.5880106021988079,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 775341.1672373664,
+        "rides_per_hour": 32557
+      }
+    },
+    {
+      "rider_metrics": {
+        "total_riders": 34163,
+        "completed_rides": 32704,
+        "abandoned_rides": 1459,
+        "abandonment_rate": 0.042707022217018414,
+        "average_waiting_time": 0.26543641097365567,
+        "pickup_waiting_time_p90": 0.5590224599943667,
+        "waiting_time_stats": {
+          "mean": 0.26543641097365567,
+          "std": 0.20856313271819235,
+          "min": 0.0012594656112696612,
+          "max": 1.4895589030968495,
+          "median": 0.20527528982881904,
+          "count": 32704
+        },
+        "average_trip_distance": 10.429731131928243
+      },
+      "driver_metrics": {
+        "total_drivers": 4788,
+        "average_hourly_earnings": 22.249437561467296,
+        "average_net_hourly_earnings": 19.337107896803758,
+        "time_weighted_net_hourly_earnings": 19.41377652948958,
+        "fairness_ratio": 1.6621126238444457,
+        "earnings_distribution": {
+          "mean": 22.249437561467296,
+          "std": 4.351211536821864,
+          "min": 0.0,
+          "max": 33.394682787152284,
+          "gini": 0.10748793480136554,
+          "cv": 0.19556501258968956
+        },
+        "average_utilization": 0.7282707608030999,
+        "average_rest_fraction": 0.27172923919690206,
+        "long_rest_prob_15min": 0.8886800334168755,
+        "long_rest_prob_30min": 0.7046783625730995,
+        "trips_per_driver": {
+          "mean": 6.841060985797828,
+          "std": 1.6486524845036352,
+          "min": 0,
+          "max": 12
+        }
+      },
+      "system_metrics": {
+        "total_revenue": 780299.853877161,
+        "rides_per_hour": 32704
+      }
+    }
+  ]
+}
