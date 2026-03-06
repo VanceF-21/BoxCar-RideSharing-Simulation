@@ -62,7 +62,7 @@ python main.py --compare
 |----------|-------------|---------|
 | `--scenario, -s` | Select scenario (baseline, high_demand, etc.) | baseline |
 | `--replications, -r` | Number of experiment replications | 10 |
-| `--time, -t` | Simulation time (hours) | 168 |
+| `--time, -t` | Simulation time (hours) | 1000 |
 | `--matching, -m` | Matching algorithm (nearest, fifo, zoned, batch) | nearest |
 | `--compare, -c` | Compare all scenarios | False |
 | `--verbose, -v` | Enable detailed output | False |
@@ -77,8 +77,8 @@ All parameters are stored in `config.json`. Modify this file to customize the si
 
 | Parameter | Path | Description | Default | Unit |
 |-----------|------|-------------|---------|------|
-| `simulation_time` | `simulation.simulation_time` | Total simulation duration | 168.0 | hours |
-| `warmup_time` | `simulation.warmup_time` | Warm-up period (excluded from statistics) | 24.0 | hours |
+| `simulation_time` | `simulation.simulation_time` | Total simulation duration | 1000.0 | hours |
+| `warmup_time` | `simulation.warmup_time` | Warm-up period (excluded from statistics) | 5.0 | hours |
 | `random_seed` | `simulation.random_seed` | Seed for reproducibility | 42 | - |
 | `verbose` | `simulation.verbose` | Enable detailed console output | false | - |
 
