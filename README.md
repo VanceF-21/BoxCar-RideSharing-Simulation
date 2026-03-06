@@ -4,7 +4,7 @@ A discrete-event simulation (DES) model for analyzing ride-sharing system perfor
 
 ## Diagrams
 
-- [Driver & Rider Flowchart](assets/driver_rider_flowchart.html) — Interactive flowchart illustrating the driver and rider lifecycle in the simulation.
+- <a href="https://htmlpreview.github.io/?https://github.com/VanceF-21/BoxCar-RideSharing-Simulation/blob/main/assets/driver_rider_flowchart.html" target="_blank">Driver & Rider Flowchart</a> — Interactive flowchart illustrating the driver and rider lifecycle in the simulation.
 
 ## Project Structure
 
