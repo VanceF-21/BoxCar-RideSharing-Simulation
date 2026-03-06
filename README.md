@@ -2,6 +2,10 @@
 
 A discrete-event simulation (DES) model for analyzing ride-sharing system performance in Squareshire. This project evaluates driver and rider satisfaction metrics under various operational scenarios.
 
+## Diagrams
+
+- [Driver & Rider Flowchart](assets/driver_rider_flowchart.html) — Interactive flowchart illustrating the driver and rider lifecycle in the simulation.
+
 ## Project Structure
 
 ```
